@@ -6,17 +6,30 @@
   font-style: normal;
 }
 body {
-  background: url(/img/bgleo.jpg) no-repeat center center fixed;
+  background: url(/img/fire.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
+a {
+  color: #E8A317;
+}
+a:hover {
+  color: #b70000;
+}
 hr {
   border-color: #4d4d4d;
 }
+h1 {
+  text-align: left;
+}
 h2 {
   font-size: 40px;
+  color: #837E7C;
+}
+h4 {
+  color: #837E7C;
 }
 h6 {
   font-size: 14px;
@@ -24,9 +37,10 @@ h6 {
 }
 .titleText {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 100px;
-  -webkit-text-stroke: 3px black;
-  -webkit-text-fill-color: transparent;
+  font-size: 80px;
+  color: #0C090A;
+  -webkit-text-stroke: 1px #E8A317;
+  -webkit-text-fill-color: #0C090A;
   -webkit-background-clip: text; 0 #000;
 }
 .titleText small {
@@ -40,6 +54,9 @@ h6 {
 .progress {
   background: #4d4d4d;
 }
+.progress-bar-info {
+background-color: #E8A317;
+}
 .navbar-inverse {
   background: rgba(34, 34, 34, 0.9);
 }
@@ -48,14 +65,14 @@ h6 {
   overflow-y: scroll;
 }
 #food ul li {
-  color: #56b6d3;
+  color: #E8A317;
   font-size: 16px;
 }
 .blue {
-  color: #56b6d3 !important;
+  color: #E8A317 !important;
 }
 .red {
-  color: #f3266f !important;
+  color: #b70000 !important;
 }
 .hold-on {
   padding-top: 27px;
@@ -70,12 +87,12 @@ h6 {
   outline: none;
 }
 #errors {
-  color: #f3266f;
+  color: #b70000;
   font-size: 14px;
   padding-top: 5px;
 }
 .price {
-  color: #56b6d3;
+  color: #E8A317;
 }
 .price small {
   font-size: 10px;
@@ -95,7 +112,7 @@ h6 {
   margin-right: 10px;
 }
 .btn.btn-primary {
-  background: #56b6d3;
+  background: #f0ad4e;
   color: #222222 !important;
 }
 .btn.btn-primary a {
@@ -103,7 +120,8 @@ h6 {
   text-decoration: none;
 }
 .btn.btn-primary:hover {
-  background: #33a2c3;
+  background: #ed9c28;
+  border-color: #ed9c28;
 }
 .wizard-contents {
   background: rgba(34, 34, 34, 0.9);
@@ -196,13 +214,13 @@ h6 {
 }
 .bwizard-steps .active {
   color: #fff;
-  background: #56b6d3;
+  background: #E8A317;
 }
 .bwizard-steps .active .label {
   color: white;
 }
 .bwizard-steps .active:after {
-  border-left-color: #56b6d3;
+  border-left-color: #E8A317;
 }
 .bwizard-steps a {
   color: #979797;
