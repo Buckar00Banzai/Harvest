@@ -10,7 +10,7 @@ define(["jquery", "backbone", "icheck", "text!templates/pay.html", "text!templat
 			tagName: 'div',
 			card: null,
 
-			payTier: null,
+			payTier: 50,
 
 			initialize: function() {
 
@@ -32,7 +32,14 @@ define(["jquery", "backbone", "icheck", "text!templates/pay.html", "text!templat
 			},
 
 			selectPayTier: function(e) {
-				this.payTier = $(e.target).attr('id');
+				
+				this.payTier = $(e.target).val();
+
+				//if (tier === null){
+				//	this.payTier = $('#donation_amount').val()
+				//} else {
+				//	this.payTier = tier;
+				//}
 			},
 
 			initHoverHelp: function() {
@@ -74,11 +81,25 @@ define(["jquery", "backbone", "icheck", "text!templates/pay.html", "text!templat
 				var msg = '<span class="hold-on pull-right">This may take a few minutes... </span>';
 				$(msg).insertAfter($(e.target));
 
-				function loop() {
+				(function loop() {
 					$('.hold-on').animate({opacity:'+=1'}, 1000);
        				$('.hold-on').animate({opacity:'-=0.5'}, 1000, loop);
-				}
-				loop();
+				})();
+
+
+				
+					
+					var tier = this.payTier;
+
+					console.log("tier ="+tier);
+					console.log("donation_amount " + $('#donation_amount').val());
+
+					if (tier === "on"){
+						this.payTier = $('#donation_amount').val()
+						console.log("donation_amount 2 " + $('#donation_amount').val());
+					}
+
+				
 
 
 				var payload = {
@@ -95,6 +116,8 @@ define(["jquery", "backbone", "icheck", "text!templates/pay.html", "text!templat
 					},
 					ticket: this.model.toJSON()
 				};
+
+				console.log(payload.payment);
 
 				$.ajax({
 					url: '/api/authPayment',

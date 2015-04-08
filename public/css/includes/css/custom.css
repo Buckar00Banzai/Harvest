@@ -139,6 +139,11 @@ background-color: #E8A317;
   border: none;
   color: #979797;
 }
+.payTier {
+  background: #222222;
+  border: none;
+  color: #979797;
+}
 .bwizard {
   position: relative;
 }
