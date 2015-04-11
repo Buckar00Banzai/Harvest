@@ -55,12 +55,8 @@ module.exports.api = function(server, Base, Ticket) {
 				"amount": {
 					"total": req.body.payment.subtotal,
 					"currency": "USD",
-					"details": {
-						"subtotal": req.body.payment.subtotal,
-						"fee": "0.10",
-					}
 				},
-				"description": "New Moon in Leo Donation"
+				"description": "New Moon in Aries Donation"
 			}]
 		};
 

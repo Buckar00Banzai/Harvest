@@ -89,16 +89,6 @@ define(["jquery", "backbone", "icheck", "text!templates/pay.html", "text!templat
 
 				
 					
-					var tier = this.payTier;
-
-					console.log("tier ="+tier);
-					console.log("donation_amount " + $('#donation_amount').val());
-
-					if (tier === "on"){
-						this.payTier = $('#donation_amount').val()
-						console.log("donation_amount 2 " + $('#donation_amount').val());
-					}
-
 				
 
 
