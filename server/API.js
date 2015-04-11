@@ -126,7 +126,7 @@ module.exports.api = function(server, Base, Ticket) {
 					break;
 				case 'snackPrep':
 					j = 'Midnight Snack Preparation';
-					ct = 'Be prepared to stay until 1pm on Sunday the 27th.';
+					ct = '2pm';
 					break;
 				case 'otherJob':
 					j = 'Pre-Assigned Task';

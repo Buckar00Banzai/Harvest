@@ -16,17 +16,17 @@ var baseSchema = new Schema({
 
   //JOBS
   dinnerPrep: {type: Number, default: 4},
-  dinnerClean: {type: Number, default: 4},
-  brunchPrep: {type: Number, default: 4},
-  brunchClean: {type: Number, default: 5},
-  altar: {type: Number, default: 4},
-  templeSetup: {type: Number, default: 6},
-  templeBreakdown: {type: Number, default: 6},
+  dinnerClean: {type: Number, default: 3},
+  brunchPrep: {type: Number, default: 3},
+  brunchClean: {type: Number, default: 4},
+  altar: {type: Number, default: 2},
+  templeSetup: {type: Number, default: 5},
+  templeBreakdown: {type: Number, default: 5},
   pointman: {type: Number, default: 1},
   musicSetup: {type: Number, default: 4},
   musicBreakdown: {type: Number, default: 4},
   snackPrep: {type: Number, default: 4},
-  otherJob: {type: Number, default: 4},
+  otherJob: {type: Number, default: 7},
   foodList: {type: Array}
 });
 
