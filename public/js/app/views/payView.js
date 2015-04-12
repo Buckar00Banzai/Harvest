@@ -107,8 +107,6 @@ define(["jquery", "backbone", "icheck", "text!templates/pay.html", "text!templat
 					ticket: this.model.toJSON()
 				};
 
-				console.log(payload.payment);
-
 				$.ajax({
 					url: '/api/authPayment',
 					type: 'POST',
