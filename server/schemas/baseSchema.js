@@ -11,7 +11,7 @@ var mongoose =     require('mongoose'),
 var baseSchema = new Schema({
   // GLOBALS
   key: {type: Number, default: 0},
-  tickets: {type: Number, default: 50},
+  tickets: {type: Number, default: 44},
   beds: {type: Number, default: 12},
 
   //JOBS
@@ -26,7 +26,7 @@ var baseSchema = new Schema({
   musicSetup: {type: Number, default: 4},
   musicBreakdown: {type: Number, default: 4},
   snackPrep: {type: Number, default: 4},
-  otherJob: {type: Number, default: 7},
+  otherJob: {type: Number, default: 5},
   foodList: {type: Array}
 });
 
