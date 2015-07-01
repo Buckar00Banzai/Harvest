@@ -81,7 +81,7 @@
                 <div class="col-xs-4">
                     <div class="form-group">
                         <label for="exp" style="white-space: nowrap;">Expiration Date</label>
-                        <input type="text" class="form-control" id="exp-month" placeholder="MM (1-12, no zeros)">
+                        <input type="text" class="form-control" id="exp-month" placeholder="M (1-12)">
                     </div>
                 </div>
                 <div class="col-xs-4">
@@ -124,16 +124,33 @@
             <div class="row">
                 <div class="col-xs-12">
                     <div class="form-group">
-                        <label for="154.80" data-message="$50 - “Thank You Gift” to the musicians </br> $55 - Lodging </br> $25 - Tea </br> $10 - Covers Musicians' Gas </br> $10 - Production (altar, decor, lodging for musicians and organizers*) </br></br> *Bruce, our host, generously donates 2 spots, your contribution helps cover the 5-7 other people who make the event and music happen." data-title="$150 RUBEDO - Contribution Details" class="tt">$150.00<h6>If this is your first time joining us in Greenville, please consider contributing at this level.</h6></label>
+                        <label for="154.80" data-message="$50 - “Thank You Gift” to the musicians </br> $55 - Lodging </br> $25 - Tea </br> $10 - Covers Musicians' Gas </br> $10 - Production (altar, decor, lodging for musicians and organizers*) </br></br> *Bruce, our host, generously donates 2 spots, your contribution helps cover the 5-7 other people who make the event and music happen." data-title="$150 RUBEDO - Contribution Details" class="tt">$150.00</label>
                         <input type="radio" name="payTier" id="154.80" value="154.80" class="payTier">
+                        <h6>If this is your first time joining us in Greenville, please consider contributing at this level.</h6>
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-xs-4">
+                    <div class="form-group">
+                        <label for="openSelector" data-message="$50+ - “Thank You Gift” to the musicians </br> $55 - Lodging </br> $25 - Tea </br> $10 - Covers Musicians' Gas </br> $10 - Production (altar, decor, lodging for musicians and organizers*) </br></br> *Bruce, our host, generously donates 2 spots, your contribution helps cover the 5-7 other people who make the event and music happen." data-title="OPEN - Contribution Details" class="tt">OPEN DONATION</label>
+                        <input type="radio" name="payTier" id="openSelector" value="154.80">
+                        <input type="number" name="payTier" id="open" class="payTier form-control" placeholder="150+" min="154.80">
+                    </div>
+                </div>
+            </div>
+
             <div class="row">
                 <div class="col-xs-12">
                     <button id="donate" class="btn btn-primary pull-right" style="margin-top:20px;"><i class="fa fa-heart"></i> Donate</button>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div id="errors" style="display:none;"></div>
+                </div>
+            </div>
+
         </div>
 
 
