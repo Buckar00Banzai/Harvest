@@ -56,7 +56,7 @@ module.exports.api = function(server, Base, Ticket) {
 					"total": req.body.payment.subtotal,
 					"currency": "USD",
 				},
-				"description": "New Moon in Aries Donation"
+				"description": "Midnight Summer Moon Donation"
 			}]
 		};
 

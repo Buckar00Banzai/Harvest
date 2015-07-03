@@ -28,7 +28,7 @@ a {
 }
 .titleText {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 100px;
+  font-size: 84px;
   -webkit-text-stroke: 3px #CCFFCC;
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text; 0 #000;
@@ -84,6 +84,7 @@ a {
   font-size: 14px;
   margin-top: -40px;
   padding-right: 100px;
+  pointer-events: none;
 }
 .price {
   color: #ccffcc;

@@ -86,7 +86,8 @@ define(["jquery", "backbone", "icheck", "text!templates/pay.html", "text!templat
 				var _this = this;
 
 
-				
+				var open_donation = document.getElementById("open").value;
+			
 				var first_name = this.model.get('first_name');
 				var last_name = this.model.get('last_name');
 				var email = this.model.get('email');
@@ -129,11 +130,26 @@ define(["jquery", "backbone", "icheck", "text!templates/pay.html", "text!templat
 
         			return false;
 
+
 				}else {
 
-				
-				
 
+				
+			
+
+				//check if there is a value in the text field for open donation and swap the payTier value if there is one
+
+				if(open_donation) {
+
+					if(open_donation < 154.80) {
+						$('#errors').html('Open Donations must be a minimum of $154.80.<br/><br/>Thank you for your generosity!').fadeIn(400, function() {
+						});
+
+						return;
+					}
+
+					this.payTier = open_donation;
+				} 
 
 				//changes "Donate" button text and styles while processing
 				$(e.target).closest('button').removeClass('btn-primary').addClass('btn-warning disabled').html('Processing...');
@@ -145,15 +161,6 @@ define(["jquery", "backbone", "icheck", "text!templates/pay.html", "text!templat
        				$('.hold-on').animate({opacity:'-=0.5'}, 1000, loop);
 				})();
 
-				
-				//check if there is a value in the text field for open donation and swap the payTier value if there is one
-				var open_donation = document.getElementById("open").value;
-
-				if(open_donation != null || open_donation != "") {
-
-					this.payTier = open_donation;
-
-				}
 
 				var payload = {
 					payment: {
@@ -161,7 +168,7 @@ define(["jquery", "backbone", "icheck", "text!templates/pay.html", "text!templat
 						last_name: $('#last_name').val(),
 						type: this.card,
 						number: $('#cc-1').val() + $('#cc-2').val() + $('#cc-3').val() + $('#cc-4').val(),
-						expire_month: $('#exp-month').val(),
+						expire_month: parseInt($('#exp-month').val(), 10),
 						expire_year: $('#exp-year').val(),
 						cvv2: $('#cvv').val(),
 						subtotal: this.payTier,
@@ -169,6 +176,8 @@ define(["jquery", "backbone", "icheck", "text!templates/pay.html", "text!templat
 					},
 					ticket: this.model.toJSON()
 				};
+
+				console.log(payload);
 
 				$.ajax({
 					url: '/api/authPayment',
