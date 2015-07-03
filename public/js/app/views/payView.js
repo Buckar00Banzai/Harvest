@@ -99,7 +99,6 @@ define(["jquery", "backbone", "icheck", "text!templates/pay.html", "text!templat
 					//alert("Hey little llama you forgot some info in the Nominate section! We need it to generate your ticket. Please click on Previous or Nominate and be sure to fill out your first and last name and your email address before donating. Thanks!");
         			
 
-					$(e.target).closest('button').removeClass('btn-warning disabled').addClass('btn-primary').html('<i class="fa fa-heart"></i> Donate!');
 					$('#errors').html('Some info is missing in the NOMINATE section! We need it for your ticket.<br/>Please click on Previous or Nominate and fill out everything before donating.<br/>Thanks!').fadeIn(400, function() {
 					});
 
@@ -111,7 +110,6 @@ define(["jquery", "backbone", "icheck", "text!templates/pay.html", "text!templat
 					//alert("Hey little llama you forgot to pick an activity in the Activate section! We need it to generate your ticket. Please click on Previous or Activate and click on an activity before donating. Thanks!");
         			
 
-					$(e.target).closest('button').removeClass('btn-warning disabled').addClass('btn-primary').html('<i class="fa fa-heart"></i> Donate!');
 					$('#errors').html('Some info is missing in the ACTIVATE section! We need it for your ticket.<br/>Please click on Previous or Activate and click an activity before donating.<br/>Thanks!').fadeIn(400, function() {
 					});
 
@@ -123,7 +121,6 @@ define(["jquery", "backbone", "icheck", "text!templates/pay.html", "text!templat
 					//alert("Hey little llama you forgot to tell us what food you're bringing in the Generate section! We need it to generate your ticket. Please click on Previous or Generate and type in what you're bringing before donating. Thanks!");
         			
 
-					$(e.target).closest('button').removeClass('btn-warning disabled').addClass('btn-primary').html('<i class="fa fa-heart"></i> Donate!');
 					$('#errors').html('Some info is missing in the GENERATE section! We need it for your ticket.<br/>Please click on Previous or Generate and type in your food before donating.<br/>Thanks!').fadeIn(400, function() {
 					});
 
