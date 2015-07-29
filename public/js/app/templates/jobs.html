@@ -2,140 +2,85 @@
 
     <hr>
 
-    <h3>Activate:</h3>
-
-    <hr>
-
-    <div class="row">
+    <div class="row jobs-grid" style="background-color: rgba(255,188,0,0.6);">
 
         <form role="form">
-            <div class="col-xs-12 col-sm-3">
+            <div class="col-xs-4 col-sm-2">
 
                 <div class="form-group">
-                    <% if(pointman === 0) { %>
-                        <input type="radio" name="jobs" id="pointman" disabled>
-                         <label data-message="Be responsible for the temple looking the same when we leave as when we got there. Take pictures of temple and closets containing matts, pillows, and blankets before we start set up so that you can reference them at the end of breakdown and return everything to the right place." data-title="Point Person" class="tt red" for="pointman">Point Person* (<%= pointman %>)</label>
-                    <% } else { %>
-                        <input type="radio" name="jobs" id="pointman">
-                         <label data-message="Be responsible for the temple looking the same when we leave as when we got there. Take pictures of temple and closets containing matts, pillows, and blankets before we start set up so that you can reference them at the end of breakdown and return everything to the right place." data-title="Point Person" class="tt" for="pointman">Point Person* (<%= pointman %>)</label>
-                    <% } %>
-
+                    <div class="form-group">
+                        <label for="20.88" data-message='Our sincere thanks! Receive a special and limited edition AFRIKA TEMBO "thank you" postcard.</br>Estimated delivery: November 2015' data-title="" class="tt">$20</label>
+                        <input type="radio" name="payTier" id="20.88" value="20.88" class="payTier">
+                    </div>
                 </div>
 
                 <div class="form-group">
-                    <% if(altar === 0) { %>
-                        <input type="radio" name="jobs" id="altar" disabled>
-                        <label data-message="Assist with creating a beautiful, magical, seasonally inspired altar in the middle of the temple. You will also place candles throughout the space and light them at sundown." data-title="Altar" class="tt red" for="altar">Altar* (<%= altar %>)</label>
-                    <% } else { %>
-                        <input type="radio" name="jobs" id="altar">
-                        <label data-message="Assist with creating a beautiful, magical, seasonally inspired altar in the middle of the temple. You will also place candles throughout the space and light them at sundown." data-title="Altar" class="tt" for="altar">Altar* (<%= altar %>)</label>
-                    <% } %>
-
+                    <div class="form-group">
+                        <label for="36.32" data-message='Our sincere thanks! Receive a special and limited edition AFRIKA TEMBO "thank you" postcard.</br>Estimated delivery: November 2015' data-title="" class="tt">$35</label>
+                        <input type="radio" name="payTier" id="36.32" value="36.32" class="payTier">
+                    </div>
                 </div>
 
                 <div class="form-group">
-                    <% if(dinnerPrep === 0) { %>
-                        <input type="radio" name="jobs" id="dinnerPrep" disabled>
-                        <label data-message="Help set up dinner, select from what food people have brought, and prepare a couple of large dishes (dal, soup, etc.) for all to enjoy. Please bring the necessary ingredients to make your dish. Coordinate with other helpers to have dinner ready by sundown. For the light dinner please no meat, dairy, or anything that will unsettle the stomach." data-title="Dinner Preparation" class="tt red" for="dinnerPrep">Dinner Preparation* (<%= dinnerPrep %>)</label>
-                    <% } else { %>
-                        <input type="radio" name="jobs" id="dinnerPrep">
-                        <label data-message="Help set up dinner, select from what food people have brought, and prepare a couple of large dishes (dal, soup, etc.) for all to enjoy. Please bring the necessary ingredients to make your dish. Coordinate with other helpers to have dinner ready by sundown. For the light dinner please no meat, dairy, or anything that will unsettle the stomach." data-title="Dinner Preparation" class="tt" for="dinnerPrep">Dinner Preparation* (<%= dinnerPrep %>)</label>
-                    <% } %>
+                    <div class="form-group">
+                        <label for="62.04" data-message='Our sincere thanks! Receive a special and limited edition AFRIKA TEMBO "thank you" postcard + Receive SOUND PILLS with exclusive recordings of East African sounds and music from the expedition.</br>Estimated delivery: November 2015' data-title="" class="tt">$60</label>
+                        <input type="radio" name="payTier" id="62.04" value="62.04" class="payTier">
+                    </div>
+                </div>
 
+
+            </div>
+
+            <div class="col-xs-4 col-sm-2">
+
+                <div class="form-group">
+                    <div class="form-group">
+                        <label for="123.78" data-message='Our sincere thanks! Receive a collection of ETHNOGRAPHIC POSTCARDS with pictures and curiosities learned from the expedition + SOUND PILLS with exclusive recordings of East African sounds and music from the expedition.</br>Estimated delivery: November 2015' data-title="" class="tt">$120</label>
+                        <input type="radio" name="payTier" id="123.78" value="123.78" class="payTier">
+                    </div>
                 </div>
 
                 <div class="form-group">
-                    <% if(dinnerClean === 0) { %>
-                        <input type="radio" name="jobs" id="dinnerClean" disabled>
-                         <label data-message="Clean up after dinner! Encourage everyone to wash their own dishes. Put away all of the food, wash dishes, and wipe down counters." data-title="Dinner Cleanup" class="tt red" for="dinnerClean">Dinner Clean Up* (<%= dinnerClean %>)</label>
-                    <% } else { %>
-                        <input type="radio" name="jobs" id="dinnerClean">
-                         <label data-message="Clean up after dinner! Encourage everyone to wash their own dishes. Put away all of the food, wash dishes, and wipe down counters." data-title="Dinner Cleanup" class="tt" for="dinnerClean">Dinner Clean Up* (<%= dinnerClean %>)</label>
-                    <% } %>
-
+                    <div class="form-group">
+                        <label for="309.00" data-message='Our sincere thanks! Receive an exclusive 8,5X11’ PHOTOGRAPHIC PRINT + a customized AFRIKA TEMBO T-SHIRT + SOUND PILLS with exclusive recordings of East African sounds and music + a collection of ETHNOGRAPHIC POSTCARDS with pictures and curiosities learned from the expedition.</br>Estimated delivery: November 2015' data-title="" class="tt">$300</label>
+                        <input type="radio" name="payTier" id="309.00" value="309.00" class="payTier">
+                    </div>
                 </div>
 
                 <div class="form-group">
-                    <% if(brunchPrep === 0) { %>
-                        <input type="radio" name="jobs" id="brunchPrep" disabled>
-                        <label data-message="Help set up brunch, select from what food people have brought, and prepare a couple of large dishes (scramble, breakfast burritos, etc.) for all to enjoy. Please bring the necessary ingredients to make your dish. Coordinate with other helpers to have brunch ready by 11 am." data-title="Brunch Preparation" class="tt red" for="brunchPrep">Brunch Preparation (<%= brunchPrep %>)</label>
-                    <% } else { %>
-                        <input type="radio" name="jobs" id="brunchPrep">
-                        <label data-message="Help set up brunch, select from what food people have brought, and prepare a couple of large dishes (scramble, breakfast burritos, etc.) for all to enjoy. Please bring the necessary ingredients to make your dish. Coordinate with other helpers to have brunch ready by 11 am." data-title="Brunch Preparation" class="tt" for="brunchPrep">Brunch Preparation (<%= brunchPrep %>)</label>
-                    <% } %>
-                </div>
-
-                <div class="form-group">
-                    <% if(brunchClean === 0) { %>
-                        <input type="radio" name="jobs" id="brunchClean" disabled>
-                         <label data-message="Clean up post brunch on Sunday and encourage everyone to wash their dishes. Pack up and distribute any extra food or unused produce. Make sure all dishes are dried and put away, counters are wiped down, and that the dining room and kitchen are spotless before we all head back to the city!" data-title="Kitchen and General Clean Up" class="tt red" for="brunchClean">Kitchen and General Clean Up (<%= brunchClean %>)</label>
-                    <% } else { %>
-                        <input type="radio" name="jobs" id="brunchClean">
-                         <label data-message="Clean up post brunch on Sunday and encourage everyone to wash their dishes. Pack up and distribute any extra food or unused produce. Make sure all dishes are dried and put away, counters are wiped down, and that the dining room and kitchen are spotless before we all head back to the city!" data-title="Kitchen and General Clean Up" class="tt" for="brunchClean">Kitchen and General Clean Up (<%= brunchClean %>)</label>
-                    <% } %>
-
+                    <div class="form-group">
+                        <label for="514.80" data-message='Our sincere thanks! Your name CREDITED on the web series under Special Thanks + Receive TWO exclusive 8,5X11’ PHOTOGRAPHIC PRINTS + a customized AFRIKA TEMBO T-shirt + SOUND PILLS with exclusive recordings of East African sounds and music from the expedition + a collection of ETHNOGRAPHIC POSTCARDS with pictures and curiosities learned from the expedition.</br>Estimated delivery: November 2015' data-title="" class="tt">$500</label>
+                        <input type="radio" name="payTier" id="514.80" value="514.80" class="payTier">
+                    </div>
                 </div>
 
             </div>
 
-            <div class="col-xs-12 col-sm-3">
+
+            <div class="col-xs-4 col-sm-2">
 
                 <div class="form-group">
-                    <% if(musicSetup === 0) { %>
-                        <input type="radio" name="jobs" id="musicSetup" disabled>
-                        <label data-message="You will carry the musicians' instruments from their cars to the temple on Saturday, and back from the temple to their cars on Sunday. You will be on-hand to help musicians with set up and breakdown. Additionally, you will bring the sound system from the house to the temple and, on Sunday, take it back to the house. Please plan on arriving by 2pm on Saturday and not leaving earlier than 2pm on Sunday." data-title="Music Setup" class="tt red" for="musicSetup">Music Setup* (<%= musicSetup %>)</label>
-                    <% } else { %>
-                        <input type="radio" name="jobs" id="musicSetup">
-                        <label data-message="You will carry the musicians' instruments from their cars to the temple on Saturday, and back from the temple to their cars on Sunday. You will be on-hand to help musicians with set up and breakdown. Additionally, you will bring the sound system from the house to the temple and, on Sunday, take it back to the house. Please plan on arriving by 2pm on Saturday and not leaving earlier than 2pm on Sunday." data-title="Music Setup" class="tt" for="musicSetup">Music Setup* (<%= musicSetup %>)</label>
-                    <% } %>
-
+                    <div class="form-group">
+                        <label for="823.50" data-message='Your name CREDITED in the "above-the-line" of the web- series + Get an official DVD copy of AFRIKA TEMBO + TWO exclusive 11X17’ PHOTOGRAPHIC PRINTS + customized AFRIKA TEMBO T-SHIRT + SOUND PILLS with exclusive recordings of East African sounds and music from the expedition + a collection of ETHNOGRAPHIC POSTCARD with pictures and curiosities learned from the expedition.</br>Estimated delivery: November 2015' data-title="" class="tt">$800</label>
+                        <input type="radio" name="payTier" id="823.50" value="823.50" class="payTier">
+                    </div>
                 </div>
 
                 <div class="form-group">
-                    <% if(templeSetup === 0) { %>
-                        <input type="radio" name="jobs" id="templeSetup" disabled>
-                         <label data-message="Help set up the temple with pillows, blankets, mats, and all cozy things stored downstairs." data-title="Temple Setup" class="tt red" for="templeSetup">Temple Setup* (<%= templeSetup %>)</label>
-                    <% } else { %>
-                        <input type="radio" name="jobs" id="templeSetup">
-                         <label data-message="Help set up the temple with pillows, blankets, mats, and all cozy things stored downstairs." data-title="Temple Setup" class="tt" for="templeSetup">Temple Setup* (<%= templeSetup %>)</label>
-                    <% } %>
-
+                    <div class="form-group">
+                        <label for="1286.55" data-message="Your contribution will help us not only film the web series, but begin the process of editing and post-production. THANK YOU!</br>You will be featured as one of the an OFFICIAL SUPPORTER of AFRIKA TEMBO! Your name will be CREDITED in the 'above-the-line' in the credits, website, and all promotional and event materials + Receive access to behind the scenes footage as well as the Director's Cut + Get an official DVD copy + AFRIKA TEMBO T-Shirt + SOUND PILLS with exclusive recordings of East African sounds and music + a collection of ETHNOGRAPHIC POSTCARD with pictures and curiosities learned from the expedition + THREE exclusive 11X17’ photographic prints.</br>Estimated delivery: November 2015" data-title="" class="tt">$1250</label>
+                        <input type="radio" name="payTier" id="1286.55" value="1286.55" class="payTier">
+                    </div>
                 </div>
 
                 <div class="form-group">
-                    <% if(snackPrep === 0) { %>
-                        <input type="radio" name="jobs" id="snackPrep" disabled>
-                        <label data-message="Using the food that everyone has brought create a nice spread of snacks for everyone to enjoy in the late hours of the night and during the event. Plan to arrive early to prep and have everything ready and set up in the dining room before we gather in the temple at sun down. Please make sure everything is covered in saran wrap and leave a note clarifying that this spread is reserved for later! Please no meat, dairy, or anything that will unsettle the stomach. Examples: organic fruit salad with mint and lemon, guacamole and chips, tabbouleh, nuts and dried fruits, herbal teas, raw organic chocolate, bread, avocado, nut butters, honey etc." data-title="Midnight Snack Preparation" class="tt red" for="snackPrep">Midnight Snack Preparation (<%= snackPrep %>)</label>
-                    <% } else { %>
-                        <input type="radio" name="jobs" id="snackPrep">
-                        <label data-message="Using the food that everyone has brought create a nice spread of snacks for everyone to enjoy in the late hours of the night and during the event. Plan to arrive early to prep and have everything ready and set up in the dining room before we gather in the temple at sun down. Please make sure everything is covered in saran wrap and leave a note clarifying that this spread is reserved for later! Please no meat, dairy, or anything that will unsettle the stomach. Examples: organic fruit salad with mint and lemon, guacamole and chips, tabbouleh, nuts and dried fruits, herbal teas, raw organic chocolate, bread, avocado, nut butters, honey etc." data-title="Midnight Snack Preparation" class="tt" for="snackPrep">Midnight Snack Preparation (<%= snackPrep %>)</label>
-                    <% } %>
-
+                    <div class="form-group">
+                        <label for="2058.30" data-message="Your contribution will help us not only film the web series, but begin the process of editing and post-production. THANK YOU!</br>You will be featured as one OFFICIAL SUPPORTER of AFRIKA TEMBO! Your name will be CREDITED in the 'above-the-line' in the credits, website, and all promotional and event materials + Receive access to behind the scenes footage as well as the Director's Cut + Get an official DVD copy + AFRIKA TEMBO T-Shirt + SOUND PILLS with exclusive recordings of East African sounds and music + a collection of ETHNOGRAPHIC POSTCARD with pictures and curiosities learned from the expedition + FIVE exclusive 11X17’ photographic prints.</br>Estimated delivery: November 2015" data-title="" class="tt">$2000</label>
+                        <input type="radio" name="payTier" id="2058.30" value="2058.30" class="payTier">
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <% if(musicBreakdown === 0) { %>
-                        <input type="radio" name="jobs" id="musicBreakdown" disabled>
-                         <label data-message="You will carry the musicians' instruments from their cars to the temple on Saturday, and back from the temple to their cars on Sunday. You will be on-hand to help musicians with set up and breakdown. Additionally, you will bring the sound system from the house to the temple and, on Sunday, take it back to the house. Please plan on arriving by 2pm on Saturday and not leaving earlier than 2pm on Sunday." data-title="Music Breakdown" class="tt red" for="musicBreakdown">Music Breakdown (<%= musicBreakdown %>)</label>
-                    <% } else { %>
-                        <input type="radio" name="jobs" id="musicBreakdown">
-                         <label data-message="You will carry the musicians' instruments from their cars to the temple on Saturday, and back from the temple to their cars on Sunday. You will be on-hand to help musicians with set up and breakdown. Additionally, you will bring the sound system from the house to the temple and, on Sunday, take it back to the house. Please plan on arriving by 2pm on Saturday and not leaving earlier than 2pm on Sunday." data-title="Music Breakdown" class="tt" for="musicBreakdown">Music Breakdown (<%= musicBreakdown %>)</label>
-                    <% } %>
-
-                </div>
-
-                <div class="form-group">
-                    <% if(templeBreakdown === 0) { %>
-                        <input type="radio" name="jobs" id="templeBreakdown" disabled>
-                        <label data-message="Coordinate with the Point Person to make sure pillows, blankets, and mats are returned to their right place. Remove any garbage, sweep the floor, and help consolidate misplaced items etc." data-title="Temple Breakdown" class="tt red" for="templeBreakdown">Temple Breakdown (<%= templeBreakdown %>)</label>
-                    <% } else { %>
-                        <input type="radio" name="jobs" id="templeBreakdown">
-                        <label data-message="Coordinate with the Point Person to make sure pillows, blankets, and mats are returned to their right place. Remove any garbage, sweep the floor, and help consolidate misplaced items etc." data-title="Temple Breakdown" class="tt" for="templeBreakdown">Temple Breakdown (<%= templeBreakdown %>)</label>
-                    <% } %>
-
-                </div>
-
-                <div class="form-group">
+<!--                 <div class="form-group">
                     <% if(otherJob === 0) { %>
                         <input type="radio" name="jobs" id="otherJob" disabled>
                         <label data-message="Please ONLY choose this if you have first spoken to Dina, Alexandra or Scott. Thanks!" data-title="Pre-Assigned Task" class="tt red" for="otherJob">Pre-Assigned Task* (<%= otherJob %>)</label>
@@ -145,21 +90,14 @@
                     <% } %>
 
                 </div>
-
+ -->
 
             </div>
         </form>
 
-        <div class="col-xs-12 col-sm-6">
+        <div class="col-xs-12 col-sm-6" style="background-color:rgba(171,69,0,0.6);padding:10px;">
 
-            <p>Please pick an activity to help with. Click on an activity to read a description and press "Next" to confirm. Please arrive by 1pm if you choose an activity marked with an *asterisk. Otherwise aim to arrive no later than 3pm so we can enjoy the land and settle in.</p>
-
-            <p>Try to pick an activity that you resonate with or have some experience with, this is also part of your donation.</p>
-
-            <hr>
-
-            <h4 class="job-title"></h4>
-            <p class="job-description"></p>
+            <p class="job-description">Please choose a donation amount to see the corresponding "Thank you" gift.</p>
 
         </div>
     </div>

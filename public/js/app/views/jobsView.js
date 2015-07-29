@@ -22,10 +22,10 @@ define(["jquery", "backbone", "icheck", "models/baseModel", "text!templates/jobs
 			},
 
 			events: {
-				'ifChanged input': 'selectJob'
+				'ifChanged input': 'selectPayTier'
 			},
 
-			selectJob: function(e) {
+			selectPayTier: function(e) {
 				this.job = $(e.target).attr('id');
 			},
 
@@ -46,7 +46,7 @@ define(["jquery", "backbone", "icheck", "models/baseModel", "text!templates/jobs
 
                 });
 
-				$('input[name=jobs]').on('ifChanged', function(e) {
+				$('input[name=payTier]').on('ifChanged', function(e) {
 
                     var message = $(this).parent().parent().find('.tt').data('message');
                     	jobTitle = $(this).parent().parent().find('.tt').data('title');

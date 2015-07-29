@@ -21,17 +21,6 @@ var ticketSchema = new Schema({
 	job: {
 		type: String
 	},
-	paid: {
-		type: Boolean,
-		default: false
-	},
-	room: {
-		type: Boolean,
-		default: false
-	},
-	food: {
-		type: Array
-	},
 	timestamp: {
 		type: Date,
 		default: new Date()

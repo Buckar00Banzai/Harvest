@@ -84,22 +84,18 @@ define(["jquery", "backbone", "icheck", "text!templates/pay.html", "text!templat
 				e.preventDefault();
 
 				var _this = this;
-
-
-				var open_donation = document.getElementById("open").value;
 			
 				var first_name = this.model.get('first_name');
 				var last_name = this.model.get('last_name');
 				var email = this.model.get('email');
 				var job = this.model.get('job');
-				var food = this.model.get('food');
 
 				if(first_name == null || first_name == "" || last_name == null || last_name == "" || email == null || email == "") {
 
 					//alert("Hey little llama you forgot some info in the Nominate section! We need it to generate your ticket. Please click on Previous or Nominate and be sure to fill out your first and last name and your email address before donating. Thanks!");
         			
 
-					$('#errors').html('Some info is missing in the NOMINATE section! We need it for your ticket.<br/>Please click on Previous or Nominate and fill out everything before donating.<br/>Thanks!').fadeIn(400, function() {
+					$('#errors').html('Some information is missing, please click on INFO and fill out all fields before donating. Thank you.').fadeIn(400, function() {
 					});
 
 
@@ -110,46 +106,17 @@ define(["jquery", "backbone", "icheck", "text!templates/pay.html", "text!templat
 					//alert("Hey little llama you forgot to pick an activity in the Activate section! We need it to generate your ticket. Please click on Previous or Activate and click on an activity before donating. Thanks!");
         			
 
-					$('#errors').html('Some info is missing in the ACTIVATE section! We need it for your ticket.<br/>Please click on Previous or Activate and click an activity before donating.<br/>Thanks!').fadeIn(400, function() {
+					$('#errors').html('Some information is missing, please click on CHOOSE DONATION, then click on a donation level before donating. Thank you.').fadeIn(400, function() {
 					});
 
 
         			return false;
-
-        		}else if(food == null || food == "") {
-
-					//alert("Hey little llama you forgot to tell us what food you're bringing in the Generate section! We need it to generate your ticket. Please click on Previous or Generate and type in what you're bringing before donating. Thanks!");
-        			
-
-					$('#errors').html('Some info is missing in the GENERATE section! We need it for your ticket.<br/>Please click on Previous or Generate and type in your food before donating.<br/>Thanks!').fadeIn(400, function() {
-					});
-
-
-        			return false;
-
 
 				}else {
 
 
-				
-			
-
-				//check if there is a value in the text field for open donation and swap the payTier value if there is one
-
-				if(open_donation) {
-
-					if(open_donation < 154.80) {
-						$('#errors').html('Open Donations must be a minimum of $154.80.<br/><br/>Thank you for your generosity!').fadeIn(400, function() {
-						});
-
-						return;
-					}
-
-					this.payTier = open_donation;
-				} 
-
 				//changes "Donate" button text and styles while processing
-				$(e.target).closest('button').removeClass('btn-primary').addClass('btn-warning disabled').html('Processing...');
+				$(e.target).closest('button').html('Working');
 				var msg = '<span class="hold-on pull-right">This may take a few minutes... </span>';
 				$(msg).insertAfter($(e.target));
 
@@ -168,7 +135,7 @@ define(["jquery", "backbone", "icheck", "text!templates/pay.html", "text!templat
 						expire_month: parseInt($('#exp-month').val(), 10),
 						expire_year: $('#exp-year').val(),
 						cvv2: $('#cvv').val(),
-						subtotal: this.payTier,
+						subtotal: job,
 						//total: this.payTier + ".10",
 					},
 					ticket: this.model.toJSON()
@@ -189,7 +156,7 @@ define(["jquery", "backbone", "icheck", "text!templates/pay.html", "text!templat
 					})
 					.fail(function(error) {
 						$(e.target).closest('button').removeClass('btn-warning disabled').addClass('btn-primary').html('<i class="fa fa-heart"></i> Donate!');
-						$('#errors').html('There was an error processing your donation.  Check your info and try again!').fadeIn(400, function() {
+						$('#errors').html('There was an error processing your donation. Please check your card information and try again.').fadeIn(400, function() {
 							setTimeout(function() {
 								$('#errors').fadeOut(400, function() {
 									$(this).html('');

@@ -26,8 +26,8 @@ define(["jquery", "backbone", "views/wizardView", "views/detailsView", "views/jo
                                 ref: new DetailsView({
                                     model: ticket
                                 }),
-                                tab: 'Nominate',
-                                nu: '1',
+                                tab: 'Info',
+                                nu: '1.',
                                 progress: '20%'
                             });
                             Wizard.insertView({
@@ -35,19 +35,19 @@ define(["jquery", "backbone", "views/wizardView", "views/detailsView", "views/jo
                                     model: ticket,
                                     base: base
                                 }),
-                                tab: 'Activate',
-                                nu: '2',
+                                tab: 'Choose Donation',
+                                nu: '2.',
                                 progress: '40%'
                             });
-                            Wizard.insertView({
-                                ref: new FoodView({
-                                    model: ticket,
-                                    base: base
-                                }),
-                                tab: 'Generate',
-                                nu: '3',
-                                progress: '60%'
-                            });
+                            // Wizard.insertView({
+                            //     ref: new FoodView({
+                            //         model: ticket,
+                            //         base: base
+                            //     }),
+                            //     tab: 'Generate',
+                            //     nu: '3',
+                            //     progress: '60%'
+                            // });
                             // Wizard.insertView({
                             //     ref: new RoomView({
                             //         model: ticket,
@@ -63,7 +63,7 @@ define(["jquery", "backbone", "views/wizardView", "views/detailsView", "views/jo
                                     base: base
                                 }),
                                 tab: 'Donate',
-                                nu: '4',
+                                nu: '3.',
                                 progress: '100%'
                             });
                         });
