@@ -92,7 +92,8 @@ module.exports.api = function(server, Base, Ticket) {
 
 			var mailOptions = {
 				from: "Afrika Tembo<afrikatembo@gmail.com>", // sender address
-				to: ticket.email, // list of receivers
+				to: ticket.email,
+				cc: "Afrika Tembo<afrikatembo@gmail.com>", // list of receivers
 				subject: "Thank you for your donation to Afrika Tembo", // Subject line
 				text: text // plaintext body
 			};
