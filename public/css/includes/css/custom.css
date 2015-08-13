@@ -256,7 +256,6 @@ a:-webkit-any-link {
   height: 0;
   width: 20px;
   content: "";
-  background: url(/img/arrow.png) no-repeat center center fixed;
   z-index: 1;
 }
 .bwizard-steps .label {
