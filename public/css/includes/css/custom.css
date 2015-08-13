@@ -53,7 +53,7 @@ a:-webkit-any-link {
   margin-left: 17px;
 }
 .landing-blurb {
-  background-color: rgba(255,188,0,0.6);
+  background-color: rgba(255,188,0,0.4);
   padding: 25px 10px 0px 10px;
   margin: 5px 0 10px 0;
   font-size: 18px;
@@ -159,7 +159,7 @@ a:-webkit-any-link {
 .btn-warning {
   width: 180px;
   color: #ffffff;
-  background-color: rgba(255,188,0,0.6);
+  background-color: rgba(255,188,0,0.5);
   border-color: none;
   border-radius: 0;
 }
