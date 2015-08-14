@@ -83,7 +83,7 @@ module.exports.api = function(server, Base, Ticket) {
 				payment = req.body.payment,
 				j, ct;
 
-			var text = "Hello, this is a confirmation that your donation to Afrika Tembo has been accepted.\n\n";
+			var text = "Hello" + " " + req.body.ticket.first_name + " " + req.body.ticket.last_name +", this is a confirmation that your donation to Afrika Tembo has been accepted.\n\n";
 				text = text + "DONATION DETAILS:\n\n";
 				text = text + "Total: $" + payment.transactions[0].amount.total + '\n';
 				text = text + "Card: " + payment.payer.funding_instruments[0].credit_card.type + ' ' + payment.payer.funding_instruments[0].credit_card.number + '\n';

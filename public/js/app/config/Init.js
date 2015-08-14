@@ -15,7 +15,7 @@ require.config({
 
       "jquery": "libs/jquery/dist/jquery",
 
-      "underscore": "libs/lodash/lodash",
+      "underscore": "libs/lodash/dist/lodash",
 
       "backbone": "libs/backbone/backbone",
 
