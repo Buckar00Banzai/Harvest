@@ -11,24 +11,22 @@ var mongoose =     require('mongoose'),
 var baseSchema = new Schema({
   // GLOBALS
   key: {type: Number, default: 0},
-  tickets: {type: Number, default: 50},
+  tickets: {type: Number, default: 44},
   beds: {type: Number, default: 12},
 
   //JOBS
-  dinnerPrep: {type: Number, default: 3},
+  dinnerPrep: {type: Number, default: 4},
   dinnerClean: {type: Number, default: 3},
   brunchPrep: {type: Number, default: 3},
-  brunchClean: {type: Number, default: 3},
-  altar: {type: Number, default: 4},
-  templeSetup: {type: Number, default: 4},
-  templeBreakdown: {type: Number, default: 4},
+  brunchClean: {type: Number, default: 4},
+  altar: {type: Number, default: 2},
+  templeSetup: {type: Number, default: 5},
+  templeBreakdown: {type: Number, default: 5},
   pointman: {type: Number, default: 1},
-  tea: {type: Number, default: 3},
-  teaSetup: {type: Number, default: 4},
-  music: {type: Number, default: 8},
-  musicSetup: {type: Number, default: 3},
-  musicBreakdown: {type: Number, default: 3},
-  fire: {type: Number, default: 4},
+  musicSetup: {type: Number, default: 4},
+  musicBreakdown: {type: Number, default: 4},
+  snackPrep: {type: Number, default: 4},
+  otherJob: {type: Number, default: 5},
   foodList: {type: Array}
 });
 

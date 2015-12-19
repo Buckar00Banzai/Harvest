@@ -6,47 +6,40 @@
   font-style: normal;
 }
 body {
-  background: url(/img/fire.jpg) no-repeat center center fixed;
+  background: url(/img/greenstag.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
-a {
-  color: #E8A317;
-}
-a:hover {
-  color: #b70000;
-}
 hr {
   border-color: #4d4d4d;
 }
-h1 {
-  text-align: left;
-}
 h2 {
   font-size: 40px;
-  color: #837E7C;
-}
-h4 {
-  color: #837E7C;
 }
 h6 {
   font-size: 14px;
   color: orange;
 }
+a {
+  color: #ccffcc;
+  text-decoration: none;
+}
 .titleText {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 80px;
-  color: #0C090A;
-  -webkit-text-stroke: 1px #E8A317;
-  -webkit-text-fill-color: #0C090A;
+  font-size: 84px;
+  -webkit-text-stroke: 3px #CCFFCC;
+  -webkit-text-fill-color: transparent;
   -webkit-background-clip: text; 0 #000;
 }
 .titleText small {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 30px;
   color: #3c3c3c;
+}
+.subTitleText {
+  color: #ccffcc;
 }
 .tt {
   cursor: pointer;
@@ -55,8 +48,8 @@ h6 {
   background: #4d4d4d;
 }
 .progress-bar-info {
-background-color: #E8A317;
-}
+  background-color: #ccffcc;
+ }
 .navbar-inverse {
   background: rgba(34, 34, 34, 0.9);
 }
@@ -65,14 +58,14 @@ background-color: #E8A317;
   overflow-y: scroll;
 }
 #food ul li {
-  color: #E8A317;
+  color: #ccffcc;
   font-size: 16px;
 }
 .blue {
-  color: #E8A317 !important;
+  color: #ccffcc !important;
 }
 .red {
-  color: #b70000 !important;
+  color: #f3266f !important;
 }
 .hold-on {
   padding-top: 27px;
@@ -87,12 +80,14 @@ background-color: #E8A317;
   outline: none;
 }
 #errors {
-  color: #b70000;
+  color: #f3266f;
   font-size: 14px;
-  padding-top: 5px;
+  margin-top: -40px;
+  padding-right: 100px;
+  pointer-events: none;
 }
 .price {
-  color: #E8A317;
+  color: #ccffcc;
 }
 .price small {
   font-size: 10px;
@@ -112,7 +107,7 @@ background-color: #E8A317;
   margin-right: 10px;
 }
 .btn.btn-primary {
-  background: #f0ad4e;
+  background: #ccffcc;
   color: #222222 !important;
 }
 .btn.btn-primary a {
@@ -120,8 +115,7 @@ background-color: #E8A317;
   text-decoration: none;
 }
 .btn.btn-primary:hover {
-  background: #ed9c28;
-  border-color: #ed9c28;
+  background: #33a2c3;
 }
 .wizard-contents {
   background: rgba(34, 34, 34, 0.9);
@@ -135,7 +129,7 @@ background-color: #E8A317;
   color: #979797;
 }
 .form-control {
-  background: #222222;
+  background: #000000;
   border: none;
   color: #979797;
 }
@@ -214,13 +208,13 @@ background-color: #E8A317;
 }
 .bwizard-steps .active {
   color: #fff;
-  background: #E8A317;
+  background: #ccffcc;
 }
 .bwizard-steps .active .label {
   color: white;
 }
 .bwizard-steps .active:after {
-  border-left-color: #E8A317;
+  border-left-color: #ccffcc;
 }
 .bwizard-steps a {
   color: #979797;

@@ -10,7 +10,7 @@ define(["jquery", "backbone", "icheck", "text!templates/pay.html", "text!templat
 			tagName: 'div',
 			card: null,
 
-			payTier: null,
+			payTier: 154.80,
 
 			initialize: function() {
 
@@ -25,6 +25,7 @@ define(["jquery", "backbone", "icheck", "text!templates/pay.html", "text!templat
 				'click #donate': 'donate',
 				'ifToggled .cards': 'selectCard',
 				'ifToggled .payTier': 'selectPayTier'
+				//'ifToggled #openSelector': 'selectPayTierOpen'
 			},
 
 			selectCard: function(e) {
@@ -32,9 +33,23 @@ define(["jquery", "backbone", "icheck", "text!templates/pay.html", "text!templat
 			},
 
 			selectPayTier: function(e) {
-				this.payTier = $(e.target).attr('id');
+				
+				this.payTier = $(e.target).val();
+
+				//if (tier === null){
+				//	this.payTier = $('#donation_amount').val()
+				//} else {
+				//	this.payTier = tier;
+				//}
 			},
 
+/*
+			selectPayTierOpen: function(e) {
+				
+				this.payTier = $('#openAmount').val();
+
+			},
+*/
 			initHoverHelp: function() {
 
                 var ele = $('.payTier-description'),
@@ -70,15 +85,78 @@ define(["jquery", "backbone", "icheck", "text!templates/pay.html", "text!templat
 
 				var _this = this;
 
+
+				var open_donation = document.getElementById("open").value;
+			
+				var first_name = this.model.get('first_name');
+				var last_name = this.model.get('last_name');
+				var email = this.model.get('email');
+				var job = this.model.get('job');
+				var food = this.model.get('food');
+
+				if(first_name == null || first_name == "" || last_name == null || last_name == "" || email == null || email == "") {
+
+					//alert("Hey little llama you forgot some info in the Nominate section! We need it to generate your ticket. Please click on Previous or Nominate and be sure to fill out your first and last name and your email address before donating. Thanks!");
+        			
+
+					$('#errors').html('Some info is missing in the NOMINATE section! We need it for your ticket.<br/>Please click on Previous or Nominate and fill out everything before donating.<br/>Thanks!').fadeIn(400, function() {
+					});
+
+
+        			return false;
+
+        		}else if(job == null || job == "") {
+
+					//alert("Hey little llama you forgot to pick an activity in the Activate section! We need it to generate your ticket. Please click on Previous or Activate and click on an activity before donating. Thanks!");
+        			
+
+					$('#errors').html('Some info is missing in the ACTIVATE section! We need it for your ticket.<br/>Please click on Previous or Activate and click an activity before donating.<br/>Thanks!').fadeIn(400, function() {
+					});
+
+
+        			return false;
+
+        		}else if(food == null || food == "") {
+
+					//alert("Hey little llama you forgot to tell us what food you're bringing in the Generate section! We need it to generate your ticket. Please click on Previous or Generate and type in what you're bringing before donating. Thanks!");
+        			
+
+					$('#errors').html('Some info is missing in the GENERATE section! We need it for your ticket.<br/>Please click on Previous or Generate and type in your food before donating.<br/>Thanks!').fadeIn(400, function() {
+					});
+
+
+        			return false;
+
+
+				}else {
+
+
+				
+			
+
+				//check if there is a value in the text field for open donation and swap the payTier value if there is one
+
+				if(open_donation) {
+
+					if(open_donation < 154.80) {
+						$('#errors').html('Open Donations must be a minimum of $154.80.<br/><br/>Thank you for your generosity!').fadeIn(400, function() {
+						});
+
+						return;
+					}
+
+					this.payTier = open_donation;
+				} 
+
+				//changes "Donate" button text and styles while processing
 				$(e.target).closest('button').removeClass('btn-primary').addClass('btn-warning disabled').html('Processing...');
 				var msg = '<span class="hold-on pull-right">This may take a few minutes... </span>';
 				$(msg).insertAfter($(e.target));
 
-				function loop() {
+				(function loop() {
 					$('.hold-on').animate({opacity:'+=1'}, 1000);
        				$('.hold-on').animate({opacity:'-=0.5'}, 1000, loop);
-				}
-				loop();
+				})();
 
 
 				var payload = {
@@ -87,7 +165,7 @@ define(["jquery", "backbone", "icheck", "text!templates/pay.html", "text!templat
 						last_name: $('#last_name').val(),
 						type: this.card,
 						number: $('#cc-1').val() + $('#cc-2').val() + $('#cc-3').val() + $('#cc-4').val(),
-						expire_month: $('#exp-month').val(),
+						expire_month: parseInt($('#exp-month').val(), 10),
 						expire_year: $('#exp-year').val(),
 						cvv2: $('#cvv').val(),
 						subtotal: this.payTier,
@@ -95,6 +173,8 @@ define(["jquery", "backbone", "icheck", "text!templates/pay.html", "text!templat
 					},
 					ticket: this.model.toJSON()
 				};
+
+				console.log(payload);
 
 				$.ajax({
 					url: '/api/authPayment',
@@ -124,7 +204,7 @@ define(["jquery", "backbone", "icheck", "text!templates/pay.html", "text!templat
 						$('#cc-4').val();
 						$('.hold-on').hide();
 					});
-
+				} //end else
 
 			},
 
