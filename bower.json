@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "backbone": "latest",
-    "lodash": "latest",
+    "lodash": "~2.4.1",
     "jquery": "latest",
     "requirejs": "latest",
     "text": "latest",
