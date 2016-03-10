@@ -23,16 +23,24 @@ define(["jquery", "backbone", "text!templates/details.html" ],
 
 				this.$el.append(this.template(this.model.toJSON()));
 
-				if (this.model.attributes.first_name !== '') {
-					$('#first-name').val(this.model.attributes.first_name);
-				}
-
-				if (this.model.attributes.last_name !== '') {
-					$('#last-name').val(this.model.attributes.last_name);
+				if (this.model.attributes.party_name !== '') {
+					$('#party-name').val(this.model.attributes.party_name);
 				}
 
 				if (this.model.attributes.email !== '') {
 					$('#email').val(this.model.attributes.email);
+				}
+
+				if (this.model.attributes.num_adults !== '') {
+					$('#num-adults').val(this.model.attributes.num_adults);
+				}
+
+				if (this.model.attributes.num_kids !== '') {
+					$('#num-kids').val(this.model.attributes.num_kids);
+				}
+
+				if (this.model.attributes.age_kids !== '') {
+					$('#age-kids').val(this.model.attributes.age_kids);
 				}
 
 				return this;
@@ -41,9 +49,11 @@ define(["jquery", "backbone", "text!templates/details.html" ],
 			updateModel: function(){
 
 				this.model.set({
-					first_name: $('#first-name').val(),
-					last_name: $('#last-name').val(),
-					email: $('#email').val()
+					party_name: $('#party-name').val(),
+					email: $('#email').val(),
+					num_adults: $('#num-adults').val(),
+					num_kids: $('#num-kids').val(),
+					age_kids: $('#age-kids').val()
 				});
 			}
 

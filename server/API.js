@@ -65,7 +65,7 @@ module.exports.api = function(server, Base, Ticket) {
 				console.error(error);
 				res.send(400, error);
 			} else {
-				console.log(req.body.ticket.first_name + ' ' + req.body.ticket.last_name + ' bought a ticket!');
+				console.log(req.body.ticket.party_name + ' bought a ticket!');
 				res.send(200, payment);
 			}
 		});

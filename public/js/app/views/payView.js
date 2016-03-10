@@ -88,13 +88,13 @@ define(["jquery", "backbone", "icheck", "text!templates/pay.html", "text!templat
 
 				var open_donation = document.getElementById("open").value;
 			
-				var first_name = this.model.get('first_name');
-				var last_name = this.model.get('last_name');
+				var party_name = this.model.get('party_name');
 				var email = this.model.get('email');
+				var num_adults = this.model.get('num_adults');
 				var job = this.model.get('job');
 				var food = this.model.get('food');
 
-				if(first_name == null || first_name == "" || last_name == null || last_name == "" || email == null || email == "") {
+				if(party_name == null || party_name == "" || email == null || email == "" || num_adults == null || num_adults == "") {
 
 					//alert("Hey little llama you forgot some info in the Nominate section! We need it to generate your ticket. Please click on Previous or Nominate and be sure to fill out your first and last name and your email address before donating. Thanks!");
         			

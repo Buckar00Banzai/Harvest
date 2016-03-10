@@ -9,13 +9,19 @@ var mongoose = require('mongoose'),
 // ===================
 
 var ticketSchema = new Schema({
-	first_name: {
-		type: String
-	},
-	last_name: {
+	party_name: {
 		type: String
 	},
 	email: {
+		type: String
+	},
+	num_adults: {
+		type: Number
+	},
+	num_kids: {
+		type: Number
+	},	
+	age_kids: {
 		type: String
 	},
 	job: {
@@ -51,7 +57,7 @@ module.exports.createTicket = function(req, res) {
 
 	ticketModel.create(req.body, function(err, docs) {
 		if (err) throw err;
-		console.log('Ticket created for ' + req.body.first_name + ' ' + req.body.last_name);
+		console.log('Ticket created for ' + req.body.party_name);
 		res.send(200, docs);
 	});
 }
