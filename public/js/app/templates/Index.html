@@ -1,16 +1,43 @@
 <div class="container">
 	<div class="row">
-		<div class="col-xs-12 text-left" style="margin-top: 2%">
-			<h1 class="titleText">Jani + Lewis</h1>
-			<h2 class="subTitleText">7-23-2016</h2>
-			<h4 class="subTitleText"><%= tickets %> spots remaining.</h4>
+		<div class="col-xs-12 text-center" style="margin-top: 320px">
+			<h1 class="titleText">JANI AND LEWIS</h1>
+			<h5 class="subTitleText">7-23-2016</h5>
+			<h5 class="subTitleText">Growing Heart Farm - Pawling, NY</h5>
 
+			<br>
+			<br>
 
-			<% if(tickets === 0) { %>
-				<a class="btn btn-lg btn-danger" style="pointer-events:none">Registration Closed</a>
-			<% } else { %>
-				<a href="#signup" class="btn btn-lg btn-warning">Click here to RSVP</a>
-			<% } %>
+			<p>Hello Friends and Family!</p>
+
+			<br>
+
+			<div class="row">
+				<div class="col-xs-12 col-sm-6 text-left">
+					<p>We invite you, our favorite people, to celebrate our wedding where we will gather the tribes to cross pollinate and lay the foundations for our shared future.  Think family-style farm festival. Bring your tents, toys, and instruments, and be ready for some open-hearted fun! We encourage you to camp or if you want a few more amenities, check our our accommodations page*  for some recommendations on where to stay nearby. Most importantly, get ready to connect with old friends, make new ones, and throw down for a long summer night!</p>
+				</div>
+
+				<div class="col-xs-12 col-sm-6 text-center">
+					<p>Dress: Summer festive and farm appropriate</p>
+					<p>Arrival: Come anytime Saturday after lunch to get settled.</p>
+					<p>**** Ceremony starts promptly at 4:30pm *** <br> and we will go through the night until Sunday after brunch</p>
+					<p>Details as they unfold on our website:</p>
+					<a href="http://www.mywedding.com/janiandlewis">www.mywedding.com/janiandlewis</a>
+				</div>
+			</div>
+
+			<br>
+			<br>
+
+			<div class="row">
+				<div class="col-xs-12">
+					<% if(tickets === 0) { %>
+						<a class="btn btn-lg btn-danger" style="pointer-events:none">Registration Closed</a>
+					<% } else { %>
+						<a href="#signup" class="btn btn-lg btn-warning">Click here to RSVP</a>
+					<% } %>
+				</div>
+			</div>
 
 		</div>
 	</div>

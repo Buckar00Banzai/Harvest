@@ -1,12 +1,16 @@
-@font-face {
+  @font-face {
   font-family: 'titleText';
   src: url('/font/ithornat-webfont.eot');
   src: url('/font/ithornat-webfont.eot?#iefix') format('embedded-opentype'), url('/font/ithornat-webfont.woff') format('woff'), url('/font/ithornat-webfont.ttf') format('truetype'), url('/font/ithornat-webfont.svg#ithornetregular') format('svg');
   font-weight: normal;
   font-style: normal;
 }
+@font-face{
+  font-family: 'indie-queen';
+  src: url('/font/indie-queen.ttf');
+}
 body {
-  background: url(/img/greenstag.jpg) no-repeat center center fixed;
+  background: url(/img/957_bg_mason_jars.jpg) no-repeat top center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -15,31 +19,38 @@ body {
 hr {
   border-color: #4d4d4d;
 }
+h1 {
+  font-size: 130px;  
+}
 h2 {
   font-size: 40px;
 }
+h5 {
+  font-size: 22px;
+}
 h6 {
   font-size: 14px;
-  color: orange;
+  color: #d4cb62;
 }
 a {
-  color: #ccffcc;
+  color: #a6d2cd;
   text-decoration: none;
 }
+p {
+  color: #d1dad9;
+}
 .titleText {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 84px;
-  -webkit-text-stroke: 3px #CCFFCC;
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text; 0 #000;
+  font-family: 'indie-queen', Helvetica, Arial, sans-serif;
+  letter-spacing: 20px;
+  color: #d1dad9;
 }
 .titleText small {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'indie-queen', Helvetica, Arial, sans-serif;
   font-size: 30px;
-  color: #3c3c3c;
+  color: #d1dad9;
 }
 .subTitleText {
-  color: #ccffcc;
+  color: #a6d2cd;
 }
 .tt {
   cursor: pointer;
@@ -48,7 +59,7 @@ a {
   background: #4d4d4d;
 }
 .progress-bar-info {
-  background-color: #ccffcc;
+  background-color: #a6d2cd;
  }
 .navbar-inverse {
   background: rgba(34, 34, 34, 0.9);
@@ -58,11 +69,11 @@ a {
   overflow-y: scroll;
 }
 #food ul li {
-  color: #ccffcc;
+  color: #a6d2cd;
   font-size: 16px;
 }
 .blue {
-  color: #ccffcc !important;
+  color: #a6d2cd !important;
 }
 .red {
   color: #f3266f !important;
@@ -87,7 +98,7 @@ a {
   pointer-events: none;
 }
 .price {
-  color: #ccffcc;
+  color: #a6d2cd;
 }
 .price small {
   font-size: 10px;
@@ -107,7 +118,7 @@ a {
   margin-right: 10px;
 }
 .btn.btn-primary {
-  background: #ccffcc;
+  background: #a6d2cd;
   color: #222222 !important;
 }
 .btn.btn-primary a {
@@ -121,6 +132,7 @@ a {
   background: rgba(34, 34, 34, 0.9);
   border-radius: 5px;
   padding: 20px;
+  margin-top: 50px;
 }
 .wizard-contents h3,
 .wizard-contents h4,
@@ -208,13 +220,13 @@ a {
 }
 .bwizard-steps .active {
   color: #fff;
-  background: #ccffcc;
+  background: #a6d2cd;
 }
 .bwizard-steps .active .label {
   color: white;
 }
 .bwizard-steps .active:after {
-  border-left-color: #ccffcc;
+  border-left-color: #a6d2cd;
 }
 .bwizard-steps a {
   color: #979797;

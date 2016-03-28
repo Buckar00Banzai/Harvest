@@ -11,22 +11,47 @@ var mongoose =     require('mongoose'),
 var baseSchema = new Schema({
   // GLOBALS
   key: {type: Number, default: 0},
-  tickets: {type: Number, default: 44},
+  tickets: {type: Number, default: 76},
   beds: {type: Number, default: 12},
 
   //JOBS
-  dinnerPrep: {type: Number, default: 4},
-  dinnerClean: {type: Number, default: 3},
-  brunchPrep: {type: Number, default: 3},
-  brunchClean: {type: Number, default: 4},
-  altar: {type: Number, default: 2},
-  templeSetup: {type: Number, default: 5},
-  templeBreakdown: {type: Number, default: 5},
-  pointman: {type: Number, default: 1},
-  musicSetup: {type: Number, default: 4},
-  musicBreakdown: {type: Number, default: 4},
-  snackPrep: {type: Number, default: 4},
-  otherJob: {type: Number, default: 5},
+  performer: {type: Number, default: 50},
+  lead: {type: Number, default: 30},
+  drumCircle: {type: Number, default: 20},
+  tech: {type: Number, default: 12},
+  setup: {type: Number, default: 80},
+  breakdown: {type: Number, default: 80},
+  lighting: {type: Number, default: 12},
+  decoration: {type: Number, default: 50},
+  flowerArranging: {type: Number, default: 10},
+  fire: {type: Number, default: 20},
+  altars: {type: Number, default: 8},
+  host: {type: Number, default: 50},
+  yourIdea1: {type: Number, default: 200},
+
+
+  dessert: {type: Number, default: 60},
+  tequila: {type: Number, default: 35},
+  partyFavors: {type: Number, default: 200},
+  yourIdea2: {type: Number, default: 200},
+
+  patronDrink: {type: Number, default: 500},
+  sundayBrunch: {type: Number, default: 500},
+  chocolateBar: {type: Number, default: 500},
+  pond: {type: Number, default: 500},
+  yourIdea3: {type: Number, default: 500},
+  
+
+  arrival1: {type: Number, default: 4},
+  arrival2: {type: Number, default: 4},
+  arrival3: {type: Number, default: 4},
+
+  accommodation1: {type: Number, default: 500},
+  accommodation2: {type: Number, default: 5},
+  accommodation3: {type: Number, default: 500},
+  accommodation4: {type: Number, default: 500},
+
+
   foodList: {type: Array}
 });
 

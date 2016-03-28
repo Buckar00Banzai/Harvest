@@ -116,19 +116,7 @@ define(["jquery", "backbone", "icheck", "text!templates/pay.html", "text!templat
 
         			return false;
 
-        		}else if(food == null || food == "") {
-
-					//alert("Hey little llama you forgot to tell us what food you're bringing in the Generate section! We need it to generate your ticket. Please click on Previous or Generate and type in what you're bringing before donating. Thanks!");
-        			
-
-					$('#errors').html('Some info is missing in the GENERATE section! We need it for your ticket.<br/>Please click on Previous or Generate and type in your food before donating.<br/>Thanks!').fadeIn(400, function() {
-					});
-
-
-        			return false;
-
-
-				}else {
+        		}else {
 
 
 				
@@ -291,6 +279,7 @@ define(["jquery", "backbone", "icheck", "text!templates/pay.html", "text!templat
 					_this.initHoverHelp();
 				}, 1);
 
+				$(document).scrollTop(0);
 				return this;
 			}
 

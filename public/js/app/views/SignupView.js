@@ -26,7 +26,7 @@ define(["jquery", "backbone", "views/wizardView", "views/detailsView", "views/jo
                                 ref: new DetailsView({
                                     model: ticket
                                 }),
-                                tab: 'Nominate',
+                                tab: 'Info',
                                 nu: '1',
                                 progress: '20%'
                             });
@@ -35,7 +35,7 @@ define(["jquery", "backbone", "views/wizardView", "views/detailsView", "views/jo
                                     model: ticket,
                                     base: base
                                 }),
-                                tab: 'Activate',
+                                tab: 'Paricipate',
                                 nu: '2',
                                 progress: '40%'
                             });
@@ -44,7 +44,7 @@ define(["jquery", "backbone", "views/wizardView", "views/detailsView", "views/jo
                                     model: ticket,
                                     base: base
                                 }),
-                                tab: 'Generate',
+                                tab: 'Accomodations',
                                 nu: '3',
                                 progress: '60%'
                             });
@@ -89,6 +89,7 @@ define(["jquery", "backbone", "views/wizardView", "views/detailsView", "views/jo
                 this.$el.html(this.template);
 
                 $('#wizard-container').append(Wizard.render().el);
+                $(document).scrollTop(0);
 
                 // Maintains chainability
                 return this;

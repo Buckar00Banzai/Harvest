@@ -39,6 +39,9 @@ define(["jquery", "backbone", "text!templates/Index.html"],
         // Returns the View class
         return SignupView;
 
+
     }
 
 );
+
+

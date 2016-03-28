@@ -78,6 +78,7 @@ define(["jquery", "backbone", "icheck", "models/baseModel", "text!templates/jobs
 					$('#' + this.job).iCheck('check');
 				}
 
+				$(document).scrollTop(0);
 				return this;
 
 			},
