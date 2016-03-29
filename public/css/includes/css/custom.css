@@ -11,10 +11,10 @@
 }
 body {
   background: url(/img/957_bg_mason_jars.jpg) no-repeat top center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  -webkit-background-size: 100% auto;
+  -moz-background-size: 100% auto;
+  -o-background-size: 100% auto;
+  background-size: 100% auto;
 }
 hr {
   border-color: #4d4d4d;

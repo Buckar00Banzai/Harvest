@@ -25,7 +25,7 @@
     "backbone": "latest",
     "lodash": "~2.4.1",
     "jquery": "latest",
-    "requirejs": "latest",
+    "requirejs": "~2.1.14",
     "text": "latest",
     "bootstrap": "latest",
     "font-awesome": "latest"
