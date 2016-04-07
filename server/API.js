@@ -19,6 +19,12 @@ var smtpTransport = nodemailer.createTransport("SMTP", {
 	}
 });
 
+
+var GoogleSpreadsheet = require("google-spreadsheet");
+
+var doc = new GoogleSpreadsheet('<1yay8AVwRMAksY0rrqAExsngqmd4m-Ofl0GmRXZOLK8g>');
+
+
 module.exports.api = function(server, Base, Ticket) {
 
 	server.post('/api/createBase',
@@ -224,6 +230,63 @@ module.exports.api = function(server, Base, Ticket) {
 
 				//smtpTransport.close(); // shut down the connection pool, no more messages
 			});
-		});
+	});
+
+	server.post('/api/updateSpreadsheet',
+		function(req, res) {
+			
+			var sheet;
+
+			var ticket = req.body.ticket;
+
+			async.series({
+				function(step) {
+					var creds = require('./JaniLewis-d03f34a46662.json');
+
+					doc.useServiceAccountAuth(creds, step);
+
+				},
+
+				function(step) {
+					doc.getInfo(function(err, info) {
+						console.log('Got doc: ' + info.title + 'by ' + info.author.email);
+						sheet = info.worksheets[0];
+						step();
+
+					});
+
+				},
+
+				function(step) {
+					sheet.addRow({
+						party: ticket.party_name,
+						email: ticket.email,
+						attending: ticket.attend,
+						adults: ticket.num_adults,
+						kids: ticket.num_kids,
+						age: ticket.age_kids,
+						arrival: ticket.arrival,
+						housing: ticket.accommodation,
+						participate: ticket.participate,
+						potluck: ticket.potluck,
+						patron: ticket.patron,
+						message: ticket.personalMessage
+
+					}, function(error, response) {
+						if (err) {
+							console.log(err);
+						} else {
+							console.log('row sent ' + response.message);
+
+							step();
+						} // end else
+
+					});
+
+				},
+
+			});
+
+	});
 
 }

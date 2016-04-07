@@ -138,7 +138,7 @@ define(["jquery", "backbone", "icheck", "text!templates/pay.html", "text!templat
 				this.updateMessage();
 				this.updateModel();
 
-				if(party_name == null || party_name == "" || email == null || email == "" || num_adults == null || num_adults == "" || attend == null || attend == "") {
+				if(party_name == null || party_name == "" || email == null || email == "" || num_adults == null || num_adults == "" || num_adults == 0 || attend == null || attend == "") {
 
 					//alert("Hey little llama you forgot some info in the Nominate section! We need it to generate your ticket. Please click on Previous or Nominate and be sure to fill out your first and last name and your email address before donating. Thanks!");
         			
@@ -236,6 +236,19 @@ define(["jquery", "backbone", "icheck", "text!templates/pay.html", "text!templat
 
 				$.ajax({
 					url: '/api/sendEmail',
+					type: 'POST',
+					dataType: 'JSON',
+					data: {
+						ticket: ticket
+					},
+				});
+
+			},
+
+			updateSpreadsheet: function(ticket) {
+
+				$.ajax({
+					url: '/api/updateSpreadsheet',
 					type: 'POST',
 					dataType: 'JSON',
 					data: {
