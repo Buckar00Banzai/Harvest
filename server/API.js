@@ -232,61 +232,61 @@ module.exports.api = function(server, Base, Ticket) {
 			});
 	});
 
-	server.post('/api/updateSpreadsheet',
-		function(req, res) {
+	// server.post('/api/updateSpreadsheet',
+	// 	function(req, res) {
 			
-			var sheet;
+	// 		var sheet;
 
-			var ticket = req.body.ticket;
+	// 		var ticket = req.body.ticket;
 
-			async.series({
-				function(step) {
-					var creds = require('./JaniLewis-d03f34a46662.json');
+	// 		async.series({
+	// 			function(step) {
+	// 				var creds = require('./JaniLewis-d03f34a46662.json');
 
-					doc.useServiceAccountAuth(creds, step);
+	// 				doc.useServiceAccountAuth(creds, step);
 
-				},
+	// 			},
 
-				function(step) {
-					doc.getInfo(function(err, info) {
-						console.log('Got doc: ' + info.title + 'by ' + info.author.email);
-						sheet = info.worksheets[0];
-						step();
+	// 			function(step) {
+	// 				doc.getInfo(function(err, info) {
+	// 					console.log('Got doc: ' + info.title + 'by ' + info.author.email);
+	// 					sheet = info.worksheets[0];
+	// 					step();
 
-					});
+	// 				});
 
-				},
+	// 			},
 
-				function(step) {
-					sheet.addRow({
-						party: ticket.party_name,
-						email: ticket.email,
-						attending: ticket.attend,
-						adults: ticket.num_adults,
-						kids: ticket.num_kids,
-						age: ticket.age_kids,
-						arrival: ticket.arrival,
-						housing: ticket.accommodation,
-						participate: ticket.participate,
-						potluck: ticket.potluck,
-						patron: ticket.patron,
-						message: ticket.personalMessage
+	// 			function(step) {
+	// 				sheet.addRow({
+	// 					party: ticket.party_name,
+	// 					email: ticket.email,
+	// 					attending: ticket.attend,
+	// 					adults: ticket.num_adults,
+	// 					kids: ticket.num_kids,
+	// 					age: ticket.age_kids,
+	// 					arrival: ticket.arrival,
+	// 					housing: ticket.accommodation,
+	// 					participate: ticket.participate,
+	// 					potluck: ticket.potluck,
+	// 					patron: ticket.patron,
+	// 					message: ticket.personalMessage
 
-					}, function(error, response) {
-						if (err) {
-							console.log(err);
-						} else {
-							console.log('row sent ' + response.message);
+	// 				}, function(error, response) {
+	// 					if (err) {
+	// 						console.log(err);
+	// 					} else {
+	// 						console.log('row sent ' + response.message);
 
-							step();
-						} // end else
+	// 						step();
+	// 					} // end else
 
-					});
+	// 				});
 
-				},
+	// 			},
 
-			});
+	// 		});
 
-	});
+	// });
 
 }
