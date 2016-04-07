@@ -93,6 +93,10 @@ define(["jquery", "backbone", "icheck", "models/baseModel", "text!templates/food
 					$('#' + this.arrival).iCheck('check');
 				}
 
+				if(this.accommodation !== null) {
+					$('#' + this.accommodation).iCheck('check');
+				}
+
 				$(document).scrollTop(0);
 				return this;
 
@@ -103,7 +107,8 @@ define(["jquery", "backbone", "icheck", "models/baseModel", "text!templates/food
 				var _this = this;
 
 				this.model.set({
-					arrival: _this.arrival
+					arrival: _this.arrival,
+					accommodation: _this.accommodation
 				});
 
 			}

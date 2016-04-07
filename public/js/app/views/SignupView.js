@@ -28,7 +28,7 @@ define(["jquery", "backbone", "views/wizardView", "views/detailsView", "views/jo
                                 }),
                                 tab: 'Info',
                                 nu: '1',
-                                progress: '20%'
+                                progress: '25%'
                             });
                             Wizard.insertView({
                                 ref: new JobsView({
@@ -37,7 +37,7 @@ define(["jquery", "backbone", "views/wizardView", "views/detailsView", "views/jo
                                 }),
                                 tab: 'Paricipate',
                                 nu: '2',
-                                progress: '40%'
+                                progress: '50%'
                             });
                             Wizard.insertView({
                                 ref: new FoodView({
@@ -46,7 +46,7 @@ define(["jquery", "backbone", "views/wizardView", "views/detailsView", "views/jo
                                 }),
                                 tab: 'Accomodations',
                                 nu: '3',
-                                progress: '60%'
+                                progress: '75%'
                             });
                             // Wizard.insertView({
                             //     ref: new RoomView({
@@ -62,7 +62,7 @@ define(["jquery", "backbone", "views/wizardView", "views/detailsView", "views/jo
                                     model: ticket,
                                     base: base
                                 }),
-                                tab: 'Donate',
+                                tab: 'Confirm',
                                 nu: '4',
                                 progress: '100%'
                             });

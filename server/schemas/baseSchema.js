@@ -11,8 +11,8 @@ var mongoose =     require('mongoose'),
 var baseSchema = new Schema({
   // GLOBALS
   key: {type: Number, default: 0},
-  tickets: {type: Number, default: 76},
-  beds: {type: Number, default: 12},
+  tickets: {type: Number, default: 1},
+  // beds: {type: Number, default: 12},
 
   //JOBS
   performer: {type: Number, default: 50},
@@ -32,27 +32,27 @@ var baseSchema = new Schema({
 
   dessert: {type: Number, default: 60},
   tequila: {type: Number, default: 35},
-  partyFavors: {type: Number, default: 200},
-  yourIdea2: {type: Number, default: 200},
+  partyFavors: {type: Number, default: 0},
+  yourIdea2: {type: Number, default: 0},
 
-  patronDrink: {type: Number, default: 500},
-  sundayBrunch: {type: Number, default: 500},
-  chocolateBar: {type: Number, default: 500},
-  pond: {type: Number, default: 500},
-  yourIdea3: {type: Number, default: 500},
+  patronDrink: {type: Number, default: 0},
+  sundayBrunch: {type: Number, default: 0},
+  chocolateBar: {type: Number, default: 0},
+  pond: {type: Number, default: 0},
+  yourIdea3: {type: Number, default: 0},
   
 
-  arrival1: {type: Number, default: 4},
-  arrival2: {type: Number, default: 4},
-  arrival3: {type: Number, default: 4},
+  arrival1: {type: Number, default: 0},
+  arrival2: {type: Number, default: 0},
+  arrival3: {type: Number, default: 0},
 
   accommodation1: {type: Number, default: 500},
   accommodation2: {type: Number, default: 5},
-  accommodation3: {type: Number, default: 500},
-  accommodation4: {type: Number, default: 500},
+  accommodation3: {type: Number, default: 0},
+  accommodation4: {type: Number, default: 0},
 
 
-  foodList: {type: Array}
+  // foodList: {type: Array}
 });
 
 // CREATE DATABASE MODEL
@@ -82,19 +82,61 @@ module.exports.updateBase = function(req, res) {
 
   console.log(req.body);
 
-  var job = req.body.job,
-      foods = req.body.food;
+  // var job = req.body.job,
+  //     foods = req.body.food;
+
+  var participate = req.body.participate,
+      potluck = req.body.potluck,
+      patron = req.body.patron,
+      arrival = req.body.arrival,
+      accommodation = req.body.accommodation;
+
 
   baseModel.findOne({'key': 0}, function(err, doc){
     if(err) throw err;
-    if(foods) {
-      for (var i = 0; i < foods.length; i++) {
-        doc.foodList.push(foods[i]);
-      }
-    }
+    // if(foods) {
+    //   for (var i = 0; i < foods.length; i++) {
+    //     doc.foodList.push(foods[i]);
+    //   }
+    // }
 
-    doc.tickets = doc.tickets - 1;
-    doc[job] = doc[job] - 1;
+    doc.tickets = doc.tickets + 1;
+
+    doc[patron] = doc[patron] + 1;
+
+    doc[arrival] = doc[arrival] + 1;
+
+
+    if (participate == "yourIdea1") {
+
+      doc[participate] = doc[participate] + 1;
+
+    } else {
+
+      doc[participate] = doc[participate] - 1;
+
+    } // end else
+
+    if (potluck == "partyFavors" || potluck == "yourIdea2") {
+
+      doc[potluck] = doc[potluck] + 1;
+
+    } else {
+
+      doc[potluck] = doc[potluck] - 1;
+
+    } // end else
+
+    if (accommodation == "accommodation3" || accommodation == "accommodation4") {
+
+      doc[accommodation] = doc[accommodation] + 1;
+
+    } else {
+
+      doc[accommodation] = doc[accommodation] - 1;
+
+    } // end else
+
 
     doc.save(function (err, doc) {
       if (err) console.log(err);

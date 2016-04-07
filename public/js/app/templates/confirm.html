@@ -1,21 +1,52 @@
 <div class="row">
     <div class="col-xs-12">
-        <h1 class="blue text-left">Congregate!  Vibrate!  Resonate!  Venerate!  Celebrate!</h1>
+        <h2 class="blue text-left">Thank You!</h2>
         <hr>
     </div>
 </div>
 <div class="row">
     <div class="col-xs-12 col-sm-6">
-        <h3>Thanks <%=party_name %>!</h3>
-        <p style="font-size:14px">From Al the Alchemical Alpaca: we are so grateful you’re joining us, it wouldn’t be the same without you!  You will receive an email receipt for your payment shortly.<p>
+        <p style="font-size:14px">Thank you so much for your support and helping to make this celebration of our lives so special.<p>
 
-		<p style="font-size:14px">Please remember this is an alcohol-free and leave no trace gathering! We are guests of our gracious host to use his space for a collective experience. Please be mindful and responsible for your own space (always clean up after yourself) as well as the collective space. No garbage! No mess!</p>
+        <p style="font-size:14px">If you're a Patron or or would like to make a donation, please use the PayPal link:</p>
 
-		<p style="font-size:14px">Also, come as early as you can! From previous experiences we have noticed that early arrivals can be invaluable. When in doubt, be fashionably early.</p>
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                <input type="hidden" name="cmd" value="_s-xclick">
+                <input type="hidden" name="hosted_button_id" value="FCJ988UVXMF5G">
+                <table>
+                    <tr>
+                        <td>
+                            <input type="hidden" name="on0" value="Patron of">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input id="paypal" type="hidden" name="os0" maxlength="200" value="<%= patron %>">
+                        </td>
+                    </tr>
+                </table>
+                <input type="image" src="https://www.paypalobjects.com/webstatic/en_US/btn/btn_pponly_142x27.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+            </form>
+
+        <br>
+        <br>
+
+        <p style="font-size:14px">Follow the festivities at here:</p>
+
+        <a href="http://www.mywedding.com/janiandlewis">www.mywedding.com/janiandlewis</a>
+
+        <br>
+        <br>
+
+        <p style="font-size:14px">Love,</p>        
+        <p style="font-size:14px">Jani and Lewis</p>        
+
+
     </div>
     <div class="col-xs-12 col-sm-6">
     	<div class="well">
-    		<img class="alpaca" src="/img/alpaca.png" alt="">
+    		<img class="alpaca" src="/img/jani_lewis.jpg" alt="">
     	</div>
     </div>
 </div>

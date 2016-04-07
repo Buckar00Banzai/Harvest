@@ -4,155 +4,152 @@
 
     <div class="row">
 
-        <form role="form">
             <div class="col-xs-12 col-sm-3">
 
                 <h3>Participate</h3>
 
                 <hr>
 
-                <div class="form-group">
-                    <% if(performer === 0) { %>
-                        <input type="radio" name="jobs" id="performer" disabled>
-                         <label data-message="Please choose another option." data-title="Performer" class="tt red" for="performer">Performer</label>
-                    <% } else { %>
-                        <input type="radio" name="jobs" id="performer">
-                         <label data-message="Want to play music? Fire dance?  Create an installation? Let us know!" data-title="Performer" class="tt" for="performer">Performer (<%= performer %>)</label>
-                    <% } %>
+                <form role="form">
 
-                </div>
+                    <div class="form-group">
+                        <% if(performer === 0) { %>
+                            <input type="radio" name="jobs" id="performer" disabled>
+                             <label data-message="Please choose another option." data-title="Performer" class="tt red" for="performer">Performer</label>
+                        <% } else { %>
+                            <input type="radio" name="jobs" id="performer" value="performer">
+                             <label data-message="Want to play music? Fire dance?  Create an installation? Let us know!" data-title="Performer" class="tt" for="performer">Performer (<%= performer %>)</label>
+                        <% } %>
 
-                <div class="form-group">
-                    <% if(lead === 0) { %>
-                        <input type="radio" name="jobs" id="lead" disabled>
-                        <label data-message="Please choose another option." data-title="Lead" class="tt red" for="lead">Lead (<%= lead %>)</label>
-                    <% } else { %>
-                        <input type="radio" name="jobs" id="lead">
-                        <label data-message="Got management skills? Want to be a team lead for a committee? We definitely need you!" data-title="Lead" class="tt" for="lead">Lead (<%= lead %>)</label>
-                    <% } %>
+                    </div>
 
-                </div>
+                    <div class="form-group">
+                        <% if(lead === 0) { %>
+                            <input type="radio" name="jobs" id="lead" disabled>
+                            <label data-message="Please choose another option." data-title="Lead" class="tt red" for="lead">Lead (<%= lead %>)</label>
+                        <% } else { %>
+                            <input type="radio" name="jobs" id="lead" value="lead">
+                            <label data-message="Got management skills? Want to be a team lead for a committee? We definitely need you!" data-title="Lead" class="tt" for="lead">Lead (<%= lead %>)</label>
+                        <% } %>
 
-                <div class="form-group">
-                    <% if(drumCircle === 0) { %>
-                        <input type="radio" name="jobs" id="drumCircle" disabled>
-                        <label data-message="Please choose another option." data-title="Drum Circle" class="tt red" for="drumCircle">Drum Circle (<%= drumCircle %>)</label>
-                    <% } else { %>
-                        <input type="radio" name="jobs" id="drumCircle">
-                        <label data-message="Bring your drum! Help us organize and create an epic late night drum circle!" data-title="Drum Circle" class="tt" for="drumCircle">Drum Circle (<%= drumCircle %>)</label>
-                    <% } %>
+                    </div>
 
-                </div>
+                    <div class="form-group">
+                        <% if(drumCircle === 0) { %>
+                            <input type="radio" name="jobs" id="drumCircle" disabled>
+                            <label data-message="Please choose another option." data-title="Drum Circle" class="tt red" for="drumCircle">Drum Circle (<%= drumCircle %>)</label>
+                        <% } else { %>
+                            <input type="radio" name="jobs" id="drumCircle" value="drumCircle">
+                            <label data-message="Bring your drum! Help us organize and create an epic late night drum circle!" data-title="Drum Circle" class="tt" for="drumCircle">Drum Circle (<%= drumCircle %>)</label>
+                        <% } %>
 
-                <div class="form-group">
-                    <% if(tech === 0) { %>
-                        <input type="radio" name="jobs" id="tech" disabled>
-                         <label data-message="Please choose another option." data-title="Tech" class="tt red" for="tech">Tech (<%= tech %>)</label>
-                    <% } else { %>
-                        <input type="radio" name="jobs" id="tech">
-                         <label data-message="Help us with sound system, lighting projection, any tech issues during wedding set-up and helping maintain during the party." data-title="Tech" class="tt" for="tech">Tech (<%= tech %>)</label>
-                    <% } %>
+                    </div>
 
-                </div>
+                    <div class="form-group">
+                        <% if(tech === 0) { %>
+                            <input type="radio" name="jobs" id="tech" disabled>
+                             <label data-message="Please choose another option." data-title="Tech" class="tt red" for="tech">Tech (<%= tech %>)</label>
+                        <% } else { %>
+                            <input type="radio" name="jobs" id="tech" value="tech">
+                             <label data-message="Help us with sound system, lighting projection, any tech issues during wedding set-up and helping maintain during the party." data-title="Tech" class="tt" for="tech">Tech (<%= tech %>)</label>
+                        <% } %>
 
-                <div class="form-group">
-                    <% if(setup === 0) { %>
-                        <input type="radio" name="jobs" id="setup" disabled>
-                        <label data-message="Please choose another option." data-title="Setup" class="tt red" for="setup">Setup (<%= setup %>)</label>
-                    <% } else { %>
-                        <input type="radio" name="jobs" id="setup">
-                        <label data-message="Come early! Help us set up before the wedding on Saturday." data-title="Setup" class="tt" for="setup">Setup (<%= setup %>)</label>
-                    <% } %>
-                </div>
+                    </div>
 
-                <div class="form-group">
-                    <% if(breakdown === 0) { %>
-                        <input type="radio" name="jobs" id="breakdown" disabled>
-                        <label data-message="Please choose another option." data-title="Breakdown" class="tt red" for="breakdown">Breakdown (<%= breakdown %>)</label>
-                    <% } else { %>
-                        <input type="radio" name="jobs" id="breakdown">
-                        <label data-message="Stay late for a chill afterparty... while we restore order." data-title="Breakdown" class="tt" for="breakdown">Breakdown (<%= breakdown %>)</label>
-                    <% } %>
+                    <div class="form-group">
+                        <% if(setup === 0) { %>
+                            <input type="radio" name="jobs" id="setup" disabled>
+                            <label data-message="Please choose another option." data-title="Setup" class="tt red" for="setup">Setup (<%= setup %>)</label>
+                        <% } else { %>
+                            <input type="radio" name="jobs" id="setup" value="setup">
+                            <label data-message="Come early! Help us set up before the wedding on Saturday." data-title="Setup" class="tt" for="setup">Setup (<%= setup %>)</label>
+                        <% } %>
+                    </div>
 
-                </div>
+                    <div class="form-group">
+                        <% if(breakdown === 0) { %>
+                            <input type="radio" name="jobs" id="breakdown" disabled>
+                            <label data-message="Please choose another option." data-title="Breakdown" class="tt red" for="breakdown">Breakdown (<%= breakdown %>)</label>
+                        <% } else { %>
+                            <input type="radio" name="jobs" id="breakdown" value="breakdown">
+                            <label data-message="Stay late for a chill afterparty... while we restore order." data-title="Breakdown" class="tt" for="breakdown">Breakdown (<%= breakdown %>)</label>
+                        <% } %>
 
-                <div class="form-group">
-                    <% if(lighting === 0) { %>
-                        <input type="radio" name="jobs" id="lighting" disabled>
-                         <label data-message="Please choose another option." data-title="Lighting" class="tt red" for="lighting">Lighting (<%= lighting %>)</label>
-                    <% } else { %>
-                        <input type="radio" name="jobs" id="lighting">
-                         <label data-message="Help decorate the land with candles, tikis, lighting, etc." data-title="Lighting" class="tt" for="lighting">Lighting (<%= lighting %>)</label>
-                    <% } %>
+                    </div>
 
-                </div>
+                    <div class="form-group">
+                        <% if(lighting === 0) { %>
+                            <input type="radio" name="jobs" id="lighting" disabled>
+                             <label data-message="Please choose another option." data-title="Lighting" class="tt red" for="lighting">Lighting (<%= lighting %>)</label>
+                        <% } else { %>
+                            <input type="radio" name="jobs" id="lighting" value="lighting">
+                             <label data-message="Help decorate the land with candles, tikis, lighting, etc." data-title="Lighting" class="tt" for="lighting">Lighting (<%= lighting %>)</label>
+                        <% } %>
 
-                <div class="form-group">
-                    <% if(decoration === 0) { %>
-                        <input type="radio" name="jobs" id="decoration" disabled>
-                         <label data-message="Please choose another option." data-title="Decoration" class="tt red" for="decoration">Decoration (<%= decoration %>)</label>
-                    <% } else { %>
-                        <input type="radio" name="jobs" id="decoration">
-                         <label data-message="Come early and help decorate the land with drapery, cloth, etc." data-title="Decoration" class="tt" for="decoration">Decoration (<%= decoration %>)</label>
-                    <% } %>
+                    </div>
 
-                </div>
+                    <div class="form-group">
+                        <% if(decoration === 0) { %>
+                            <input type="radio" name="jobs" id="decoration" disabled>
+                             <label data-message="Please choose another option." data-title="Decoration" class="tt red" for="decoration">Decoration (<%= decoration %>)</label>
+                        <% } else { %>
+                            <input type="radio" name="jobs" id="decoration" value="decoration">
+                             <label data-message="Come early and help decorate the land with drapery, cloth, etc." data-title="Decoration" class="tt" for="decoration">Decoration (<%= decoration %>)</label>
+                        <% } %>
 
-                <div class="form-group">
-                    <% if(flowerArranging === 0) { %>
-                        <input type="radio" name="jobs" id="flowerArranging" disabled>
-                         <label data-message="Please choose another option." data-title="Flower Arranging" class="tt red" for="flowerArranging">Flower Arranging (<%= flowerArranging %>)</label>
-                    <% } else { %>
-                        <input type="radio" name="jobs" id="flowerArranging">
-                         <label data-message="Come early and help pick flowers and do flower arrangements." data-title="Flower Arranging" class="tt" for="flowerArranging">Flower Arranging (<%= flowerArranging %>)</label>
-                    <% } %>
+                    </div>
 
-                </div>
+                    <div class="form-group">
+                        <% if(flowerArranging === 0) { %>
+                            <input type="radio" name="jobs" id="flowerArranging" disabled>
+                             <label data-message="Please choose another option." data-title="Flower Arranging" class="tt red" for="flowerArranging">Flower Arranging (<%= flowerArranging %>)</label>
+                        <% } else { %>
+                            <input type="radio" name="jobs" id="flowerArranging" value="flowerArranging">
+                             <label data-message="Come early and help pick flowers and do flower arrangements." data-title="Flower Arranging" class="tt" for="flowerArranging">Flower Arranging (<%= flowerArranging %>)</label>
+                        <% } %>
 
-                <div class="form-group">
-                    <% if(fire === 0) { %>
-                        <input type="radio" name="jobs" id="fire" disabled>
-                         <label data-message="Please choose another option." data-title="Fire" class="tt red" for="fire">Fire (<%= fire %>)</label>
-                    <% } else { %>
-                        <input type="radio" name="jobs" id="fire">
-                         <label data-message="Help care for the fires throughout the weekend." data-title="Fire" class="tt" for="fire">Fire (<%= fire %>)</label>
-                    <% } %>
+                    </div>
 
-                </div>
+                    <div class="form-group">
+                        <% if(fire === 0) { %>
+                            <input type="radio" name="jobs" id="fire" disabled>
+                             <label data-message="Please choose another option." data-title="Fire" class="tt red" for="fire">Fire (<%= fire %>)</label>
+                        <% } else { %>
+                            <input type="radio" name="jobs" id="fire" value="fire">
+                             <label data-message="Help care for the fires throughout the weekend." data-title="Fire" class="tt" for="fire">Fire (<%= fire %>)</label>
+                        <% } %>
 
-                <div class="form-group">
-                    <% if(altars === 0) { %>
-                        <input type="radio" name="jobs" id="altars" disabled>
-                         <label data-message="Please choose another option." data-title="Altars" class="tt red" for="altars">Altars (<%= altars %>)</label>
-                    <% } else { %>
-                        <input type="radio" name="jobs" id="altars">
-                         <label data-message="Come early and help create the altars around the farm and maintain throughout night." data-title="Altars" class="tt" for="altars">Altars (<%= altars %>)</label>
-                    <% } %>
+                    </div>
 
-                </div>
+                    <div class="form-group">
+                        <% if(altars === 0) { %>
+                            <input type="radio" name="jobs" id="altars" disabled>
+                             <label data-message="Please choose another option." data-title="Altars" class="tt red" for="altars">Altars (<%= altars %>)</label>
+                        <% } else { %>
+                            <input type="radio" name="jobs" id="altars" value="altars">
+                             <label data-message="Come early and help create the altars around the farm and maintain throughout night." data-title="Altars" class="tt" for="altars">Altars (<%= altars %>)</label>
+                        <% } %>
 
-                <div class="form-group">
-                    <% if(host === 0) { %>
-                        <input type="radio" name="jobs" id="host" disabled>
-                         <label data-message="Please choose another option." data-title="Host" class="tt red" for="host">Host (<%= host %>)</label>
-                    <% } else { %>
-                        <input type="radio" name="jobs" id="host">
-                         <label data-message="CleHelp us hold the space and share good farm hospitatlity with our friends and family." data-title="Host" class="tt" for="host">Host (<%= host %>)</label>
-                    <% } %>
+                    </div>
 
-                </div>
+                    <div class="form-group">
+                        <% if(host === 0) { %>
+                            <input type="radio" name="jobs" id="host" disabled>
+                             <label data-message="Please choose another option." data-title="Host" class="tt red" for="host">Host (<%= host %>)</label>
+                        <% } else { %>
+                            <input type="radio" name="jobs" id="host" value="host">
+                             <label data-message="CleHelp us hold the space and share good farm hospitatlity with our friends and family." data-title="Host" class="tt" for="host">Host (<%= host %>)</label>
+                        <% } %>
 
-                <div class="form-group">
-                    <% if(yourIdea1 === 0) { %>
-                        <input type="radio" name="jobs" id="yourIdea1" disabled>
-                        <label data-message="Please choose another option." data-title="Your Idea Here" class="tt red" for="yourIdea1">Your Idea Here</label>
-                    <% } else { %>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="openSelector" data-message='Want to participate in a way not mentioned above? Write it here!' data-title="Your Idea Here" class="tt">Your Idea here</label>
                         <input type="radio" name="jobs" id="yourIdea1">
-                        <label data-message="Want to participate in a way not mentioned above? Write it here!" data-title="Your Idea Here" class="tt" for="yourIdea1">Your Idea Here</label>
-                    <% } %>
+                        <input type="text" name="jobs" id="yourIdea1" class="form-control" placeholder="Your Idea Here">
+                    </div>
 
-                </div>
-
+                </form>
 
             </div>
 
@@ -162,49 +159,43 @@
 
                 <hr>                
 
-                <div class="form-group">
-                    <% if(dessert === 0) { %>
-                        <input type="radio" name="jobs" id="dessert" disabled>
-                         <label data-message="Please choose another option." data-title="Dessert" class="tt red" for="dessert">Dessert (<%= dessert %>)</label>
-                    <% } else { %>
-                        <input type="radio" name="jobs" id="dessert">
-                         <label data-message="Bring your favorite desert for the desert table (examples: cupcakes, pies, cakes, fruit tray, brownies, etc)." data-title="Dessert" class="tt" for="dessert">Dessert (<%= dessert %>)</label>
-                    <% } %>
 
-                </div>
+                <form role="form">
 
-                <div class="form-group">
-                    <% if(tequila === 0) { %>
-                        <input type="radio" name="jobs" id="tequila" disabled>
-                        <label data-message="Please choose another option." data-title="Bottle of Tequila" class="tt red" for="tequila">Bottle of Tequila (<%= tequila %>)</label>
-                    <% } else { %>
-                        <input type="radio" name="jobs" id="tequila">
-                        <label data-message="Bring your favorite bottle of Tequila or whatever you like to drink." data-title="Bottle of Tequila" class="tt" for="tequila">Bottle of Tequila (<%= tequila %>)</label>
-                    <% } %>
+                    <div class="form-group">
+                        <% if(dessert === 0) { %>
+                            <input type="radio" name="jobs" id="dessert" disabled>
+                             <label data-message="Please choose another option." data-title="Dessert" class="tt red" for="dessert">Dessert (<%= dessert %>)</label>
+                        <% } else { %>
+                            <input type="radio" name="jobs" id="dessert" value="dessert">
+                             <label data-message="Bring your favorite desert for the desert table (examples: cupcakes, pies, cakes, fruit tray, brownies, etc)." data-title="Dessert" class="tt" for="dessert">Dessert (<%= dessert %>)</label>
+                        <% } %>
 
-                </div>
+                    </div>
 
-                <div class="form-group">
-                    <% if(partyFavors === 0) { %>
-                        <input type="radio" name="jobs" id="partyFavors" disabled>
-                        <label data-message="Please choose another option." data-title="Party Favors" class="tt red" for="partyFavors">Party Favors</label>
-                    <% } else { %>
-                        <input type="radio" name="jobs" id="partyFavors">
+                    <div class="form-group">
+                        <% if(tequila === 0) { %>
+                            <input type="radio" name="jobs" id="tequila" disabled>
+                            <label data-message="Please choose another option." data-title="Bottle of Tequila" class="tt red" for="tequila">Bottle of Tequila (<%= tequila %>)</label>
+                        <% } else { %>
+                            <input type="radio" name="jobs" id="tequila" value="tequila">
+                            <label data-message="Bring your favorite bottle of Tequila or whatever you like to drink." data-title="Bottle of Tequila" class="tt" for="tequila">Bottle of Tequila (<%= tequila %>)</label>
+                        <% } %>
+
+                    </div>
+
+                    <div class="form-group">
+                        <input type="radio" name="jobs" id="partyFavors" value="partyFavors">
                         <label data-message="Bring your favorite party favors to share and contribute to the vibe." data-title="Party Favors" class="tt" for="partyFavors">Party Favors</label>
-                    <% } %>
+                    </div>
 
-                </div>
-
-                <div class="form-group">
-                    <% if(yourIdea2 === 0) { %>
-                        <input type="radio" name="jobs" id="yourIdea2" disabled>
-                        <label data-message="Please choose another option." data-title="Your Idea Here" class="tt red" for="yourIdea2">Your Idea Here</label>
-                    <% } else { %>
+                    <div class="form-group">
+                        <label for="openSelector" data-message='Want to bring a potluck item that is not mentioned above? Write it here!' data-title="Your Idea Here" class="tt">Your Idea here</label>
                         <input type="radio" name="jobs" id="yourIdea2">
-                        <label data-message="Want to bring a potluck item that is not mentioned above? Write it here!" data-title="Your Idea Here" class="tt" for="yourIdea2">Your Idea Here</label>
-                    <% } %>
+                        <input type="text" name="jobs" id="yourIdea2" class="form-control" placeholder="Your Idea Here">
+                    </div>
 
-                </div>                
+                </form>
 
                 <hr>
 
@@ -212,64 +203,37 @@
 
                 <hr>
 
-                <div class="form-group">
-                    <% if(patronDrink === 0) { %>
-                        <input type="radio" name="jobs" id="patronDrink" disabled>
-                         <label data-message="Please choose another option." data-title="Patron of the Drink" class="tt red" for="patronDrink">Patron of the Drink</label>
-                    <% } else { %>
-                        <input type="radio" name="jobs" id="patronDrink">
+                <form role="form">
+
+                    <div class="form-group">
+                        <input type="radio" name="jobs" id="patronDrink" value="patronDrink">
                          <label data-message="Contribute behind the scenes in the spirit of Bacchus." data-title="Patron of the Drink" class="tt" for="patronDrink">Patron of the Drink</label>
-                    <% } %>
+                    </div>
 
-                </div>
-
-                <div class="form-group">
-                    <% if(chocolateBar === 0) { %>
-                        <input type="radio" name="jobs" id="chocolateBar" disabled>
-                        <label data-message="Please choose another option." data-title="Chocolate Bar" class="tt red" for="chocolateBar">Chocolate Bar</label>
-                    <% } else { %>
-                        <input type="radio" name="jobs" id="chocolateBar">
+                    <div class="form-group">
+                        <input type="radio" name="jobs" id="chocolateBar" value="chocolateBar">
                         <label data-message='Contribute to the making of a yummy "chocolate bar" curated by Liz.' data-title="Chocolate Bar" class="tt" for="chocolateBar">Chocolate Bar</label>
-                    <% } %>
+                    </div>
 
-                </div>
-
-                <div class="form-group">
-                    <% if(sundayBrunch === 0) { %>
-                        <input type="radio" name="jobs" id="sundayBrunch" disabled>
-                         <label data-message="Please choose another option." data-title="Sunday Brunch" class="tt red" for="sundayBrunch">Sunday Brunch</label>
-                    <% } else { %>
-                        <input type="radio" name="jobs" id="sundayBrunch">
+                    <div class="form-group">
+                        <input type="radio" name="jobs" id="sundayBrunch" value="sundayBrunch">
                          <label data-message="No work to do, you can donate to support our sunday brunch." data-title="Sunday Brunch" class="tt" for="sundayBrunch">Sunday Brunch</label>
-                    <% } %>
+                    </div>
 
-                </div>
-
-                <div class="form-group">
-                    <% if(pond === 0) { %>
-                        <input type="radio" name="jobs" id="pond" disabled>
-                        <label data-message="Please choose another option." data-title="Swimming Hole" class="tt red" for="pond">Swimming Hole</label>
-                    <% } else { %>
-                        <input type="radio" name="jobs" id="pond">
+                    <div class="form-group">
+                        <input type="radio" name="jobs" id="pond" value="pond">
                         <label data-message="Contribute to helping us renovate our pond so the next time you come we can all swim!" data-title="Swimming Hole" class="tt" for="pond">Swimming Hole</label>
-                    <% } %>
+                    </div>
 
-                </div>
-
-                <div class="form-group">
-                    <% if(yourIdea3 === 0) { %>
-                        <input type="radio" name="jobs" id="yourIdea3" disabled>
-                        <label data-message="Please choose another option." data-title="Your Idea Here" class="tt red" for="yourIdea3">Your Idea Here</label>
-                    <% } else { %>
+                    <div class="form-group">
+                        <label for="openSelector" data-message='We are working to focus our energy on making the Farm even better than it is, so if you have ideas please share.' data-title="Your Idea Here" class="tt">Your Idea here</label>
                         <input type="radio" name="jobs" id="yourIdea3">
-                        <label data-message="We are working to focus our energy on making the Farm even better than it is, so if you have ideas please share." data-title="Your Idea Here" class="tt" for="yourIdea3">Your Idea Here</label>
-                    <% } %>
+                        <input type="text" name="jobs" id="yourIdea3" class="form-control" placeholder="Your Idea Here">
+                    </div>
 
-                </div>
-
+                </form>
 
             </div>
-        </form>
 
         <div class="col-xs-12 col-sm-6">
 

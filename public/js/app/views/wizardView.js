@@ -32,6 +32,7 @@ define(["jquery", "backbone", "events/Notifier", "text!templates/wizard.html"],
                 first: function () { return _head; },
                 last: function () { return _tail; },
                 moveNext: function () {
+
                     return (_current !== null) ? _current = _current.getNext() : null;
                 }, //set current to next and return current or return null
                 movePrevious: function () {
@@ -134,14 +135,22 @@ define(["jquery", "backbone", "events/Notifier", "text!templates/wizard.html"],
             },
             movePrevious: function () {
                 this.updateModel();
-                this.wizardViews.movePrevious();
+                if(this.model.attributes.attend === 'attendNo') {
+                    this.wizardViews.setCurrentByTab('Info');
+                } else {
+                    this.wizardViews.movePrevious();
+                }
                 this.render();
                 return false;
             },
 
             moveNext: function () {
                 this.updateModel();
-                this.wizardViews.moveNext();
+                if(this.model.attributes.attend === 'attendNo') {
+                    this.wizardViews.setCurrentByTab('Confirm');
+                } else {
+                    this.wizardViews.moveNext();
+                }
                 this.render();
                 return false;
             },

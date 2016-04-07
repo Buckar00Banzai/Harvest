@@ -9,7 +9,11 @@ define(["jquery", "backbone", "icheck", "models/baseModel", "text!templates/jobs
 
 			tagName: 'div',
 
-			job: null,
+			participate: null,
+
+			potluck: null,
+
+			patron: null,
 
 			initialize: function(options) {
 
@@ -22,12 +26,50 @@ define(["jquery", "backbone", "icheck", "models/baseModel", "text!templates/jobs
 			},
 
 			events: {
-				'ifChanged input': 'selectJob'
+				'ifChanged input': 'selectJob',
+				// 'change text': 'selectIdea'
 			},
 
 			selectJob: function(e) {
-				this.job = $(e.target).attr('id');
+
+				var selection = $(e.target).val();
+
+				if (selection == 'dessert' || selection == 'tequila' || selection == 'partyFavors' || selection == 'yourIdea2') {
+
+					this.potluck = selection;
+
+				} else if (selection == 'patronDrink' || selection == 'chocolateBar' || selection == 'sundayBrunch' || selection == 'pond' || selection == 'yourIdea3') {
+
+					this.patron = selection;
+
+				} else {
+
+					this.participate = selection;
+
+				} // end else
 			},
+
+			// selectIdea: function(e) {
+
+			// 	var newIdea = $(e.target).val();
+
+			// 	var id = $(e.target).id();
+
+			// 	if (id == 'yourIdea1') {
+
+			// 		this.potluck = newIdea;
+
+			// 	} else if (id == 'yourIdea2') {
+
+			// 		this.patron = newIdea;
+
+			// 	} else if (id == 'yourIdea3') {
+
+			// 		this.participate = newIdea;
+
+			// 	} // end if				
+
+			// },
 
 			initHoverHelp: function() {
 
@@ -74,8 +116,16 @@ define(["jquery", "backbone", "icheck", "models/baseModel", "text!templates/jobs
 					_this.initHoverHelp();
 				}, 1);
 
-				if(this.job !== null) {
-					$('#' + this.job).iCheck('check');
+				if(this.participate !== null) {
+					$('#' + this.participate).iCheck('check');
+				}
+
+				if(this.potluck !== null) {
+					$('#' + this.potluck).iCheck('check');
+				}
+
+				if(this.patron !== null) {
+					$('#' + this.patron).iCheck('check');
 				}
 
 				$(document).scrollTop(0);
@@ -88,7 +138,9 @@ define(["jquery", "backbone", "icheck", "models/baseModel", "text!templates/jobs
 				var _this = this;
 
 				this.model.set({
-					job: _this.job
+					participate: _this.participate,
+					potluck: _this.potluck,
+					patron: _this.patron
 				});
 
 			}

@@ -109,11 +109,11 @@ p {
   width: 100%;
   height: auto;
   position: relative;
-  top: 20px;
 }
 .well {
   background: black;
   border-color: #222222;
+  padding: 0;
 }
 .li-previousView {
   margin-right: 10px;

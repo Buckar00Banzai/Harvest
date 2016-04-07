@@ -13,35 +13,18 @@
                 <hr>
 
                 <div class="form-group">
-                    <% if(arrival1 === 0) { %>
-                        <input type="radio" name="jobs" id="arrival1" disabled>
-                        <label data-message="Please choose another option." data-title="Thursday 7/21" class="tt red" for="arrival1">Thursday 7/21</label>
-                    <% } else { %>
-                        <input type="radio" name="jobs" id="arrival1">
-                        <label data-message="" data-title="Thursday 7/21" class="tt" for="arrival1">Thursday 7/21</label>
-                    <% } %>
-
+                    <input type="radio" name="jobs" id="arrival1">
+                    <label data-message="" data-title="Thursday 7/21" class="tt" for="arrival1">Thursday 7/21</label>
                 </div>
 
                 <div class="form-group">
-                    <% if(arrival2 === 0) { %>
-                        <input type="radio" name="jobs" id="arrival2" disabled>
-                        <label data-message="Please choose another option." data-title="Friday 7/22" class="tt red" for="arrival2">Friday 7/22</label>
-                    <% } else { %>
-                        <input type="radio" name="jobs" id="arrival2">
-                        <label data-message="" data-title="Friday 7/22" class="tt" for="arrival2">Friday 7/22</label>
-                    <% } %>
+                    <input type="radio" name="jobs" id="arrival2">
+                    <label data-message="" data-title="Friday 7/22" class="tt" for="arrival2">Friday 7/22</label>
                 </div>
 
                 <div class="form-group">
-                    <% if(arrival3 === 0) { %>
-                        <input type="radio" name="jobs" id="arrival3" disabled>
-                         <label data-message="Please choose another option." data-title="Saturday 7/23" class="tt red" for="arrival3">Saturday 7/23</label>
-                    <% } else { %>
-                        <input type="radio" name="jobs" id="arrival3">
-                         <label data-message="" data-title="Saturday 7/23" class="tt" for="arrival3">Saturday 7/23</label>
-                    <% } %>
-
+                    <input type="radio" name="jobs" id="arrival3">
+                     <label data-message="" data-title="Saturday 7/23" class="tt" for="arrival3">Saturday 7/23</label>
                 </div>
 
             </div>
@@ -79,52 +62,17 @@
                 </div>
 
                 <div class="form-group">
-                    <% if(accommodation3 === 0) { %>
-                        <input type="radio" name="jobs" id="accommodation3" disabled>
-                         <label data-message="Please choose another option." data-title="Hotel" class="tt red" for="accommodation3">Hotel</label>
-                    <% } else { %>
-                        <input type="radio" name="jobs" id="accommodation3">
-                         <label data-message="" data-title="Hotel" class="tt" for="accommodation3">Hotel</label>
-                    <% } %>
-
+                    <input type="radio" name="jobs" id="accommodation3">
+                     <label data-message="" data-title="Hotel" class="tt" for="accommodation3">Hotel</label>
                 </div>
 
                 <div class="form-group">
-                    <% if(accommodation4 === 0) { %>
-                        <input type="radio" name="jobs" id="accommodation4" disabled>
-                         <label data-message="Please choose another option." data-title="House/Friends" class="tt red" for="accommodation4">House/Friends</label>
-                    <% } else { %>
-                        <input type="radio" name="jobs" id="accommodation4">
-                         <label data-message="" data-title="House/Friends" class="tt" for="accommodation4">House/Friends</label>
-                    <% } %>
-
+                    <input type="radio" name="jobs" id="accommodation4">
+                     <label data-message="" data-title="House/Friends" class="tt" for="accommodation4">House/Friends</label>
                 </div>
 
             </div>
 
-
-
-
-
-<!--             <div class="col-xs-12 col-sm-3">
-                <div id="food-clone" class="form-group">
-                    <input type="text" class="form-control food-input" placeholder="Food Item or Dish">
-                </div>
-                <button id="add-food" class="btn btn-primary pull-right"><i class="fa fa-plus"></i></button>
-            </div>
-
-            <div id="food" class="col-xs-12 col-sm-3">
-                <ul>
-                    <% if(foodList.length === 0) { %>
-                        <li>No items yet!</li>
-                    <% } else { %>
-                        <% _.each(foodList, function(item){ %>
-                            <li><%= item %></li>
-                        <% }); %>
-                    <% } %>
-                </ul>
-            </div>
- -->
         </form>
 
         <div class="col-xs-12 col-sm-6">

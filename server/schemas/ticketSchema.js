@@ -24,20 +24,43 @@ var ticketSchema = new Schema({
 	age_kids: {
 		type: String
 	},
-	job: {
+	attend: {
 		type: String
 	},
-	paid: {
-		type: Boolean,
-		default: false
+
+	participate: {
+		type: String
 	},
-	room: {
-		type: Boolean,
-		default: false
+	potluck: {
+		type: String
 	},
-	food: {
-		type: Array
+	patron: {
+		type: String
 	},
+
+	arrival: {
+		type: String
+	},
+	accommodation: {
+		type: String
+	},
+
+	personalMessage: {
+		type: String
+	},
+
+	// paid: {
+	// 	type: Boolean,
+	// 	default: false
+	// },
+	// room: {
+	// 	type: Boolean,
+	// 	default: false
+	// },
+	// food: {
+	// 	type: Array
+	// },
+	
 	timestamp: {
 		type: Date,
 		default: new Date()
