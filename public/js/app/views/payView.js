@@ -138,7 +138,7 @@ define(["jquery", "backbone", "icheck", "text!templates/pay.html", "text!templat
 				this.updateMessage();
 				this.updateModel();
 
-				if(party_name == null || party_name == "" || email == null || email == "" || num_adults == null || num_adults == "" || num_adults == 0 || attend == null || attend == "") {
+				if(party_name == null || party_name == "" || email == null || email == "" || attend == null || attend == "") {
 
 					//alert("Hey little llama you forgot some info in the Nominate section! We need it to generate your ticket. Please click on Previous or Nominate and be sure to fill out your first and last name and your email address before donating. Thanks!");
         			
@@ -149,7 +149,12 @@ define(["jquery", "backbone", "icheck", "text!templates/pay.html", "text!templat
 
         			return false;
 
-        		}else {			
+        		}else if (attend == "attendYes" && num_adults == "") {
+
+					$('#errors').html('You forgot to indicate the humber of adults! We need it for your confirmation.<br/>Please click on Previous or Info and fill out everything before confirming.<br/>Thanks!').fadeIn(400, function() {
+					});
+
+        		}else {
 
 				//check if there is a value in the text field for open donation and swap the payTier value if there is one
 
@@ -193,7 +198,7 @@ define(["jquery", "backbone", "icheck", "text!templates/pay.html", "text!templat
 				// 	ticket: this.model.toJSON()
 				// };
 
-				console.log(this.model.toJSON());
+				console.log("this is payjs" + this.model.toJSON());
 
 				// $.ajax({
 				// 	url: '/api/authPayment',
@@ -257,6 +262,8 @@ define(["jquery", "backbone", "icheck", "text!templates/pay.html", "text!templat
 					},
 				});
 
+				console.log('updateSpreadsheet firing')
+
 			},
 
 			successPage: function() {
@@ -272,9 +279,6 @@ define(["jquery", "backbone", "icheck", "text!templates/pay.html", "text!templat
 
 				var model = Object.assign({}, this.model);
 				model.patron = this.parseDescription(model.description);
-
-				console.log(model.patron);
-				console.log(model);
 
 				var confirm = this.confirm(model);
 
@@ -326,29 +330,6 @@ define(["jquery", "backbone", "icheck", "text!templates/pay.html", "text!templat
 				$(this.el).empty();
 
 				this.$el.append(this.template(this.model.toJSON()));
-
-				setTimeout(function() {
-					$('input').iCheck({
-						radioClass: 'iradio_flat-blue'
-					});
-					// $("#cc-1, #cc-2, #cc-3, #cc-4").inputmask({
-					// 	"mask": "9999",
-					// 	"placeholder": ""
-					// });
-					// $("#exp-month").inputmask({
-					// 	"mask": "99",
-					// 	"placeholder": ""
-					// });
-					// $("#exp-year").inputmask({
-					// 	"mask": "9999",
-					// 	"placeholder": ""
-					// });
-					// $("#cvv").inputmask({
-					// 	"mask": "9999",
-					// 	"placeholder": ""
-					// });
-					// _this.initHoverHelp();
-				}, 1);
 
 				if (this.model.attributes.personalMessage !== '') {
 					$('#personalMessage').val(this.model.attributes.personalMessage);

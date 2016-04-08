@@ -26,6 +26,153 @@ var doc = new GoogleSpreadsheet('1yay8AVwRMAksY0rrqAExsngqmd4m-Ofl0GmRXZOLK8g');
 
 var async = require("async");
 
+function switchTitle(ticket, _accomodation, _arrival) {
+
+	switch(ticket.attend) {
+		case 'attendYes':
+			ticket.attend = 'Yes';
+			_attend = 'Yes';
+			break;
+		case 'attendNo':
+			ticket.attend = 'No';
+			_attend = 'No';
+			break;
+	} // end switch
+
+	switch(ticket.participate) {
+		case 'performer':
+			ticket.participate = 'Performer';
+			_participate = 'You are participating as a performer.';
+			break;
+		case 'lead':
+			ticket.participate = 'Lead';
+			_participate = 'You are participating as a team lead.';
+			break;
+		case 'drumCircle':
+			ticket.participate = 'Drum Circle';
+			_participate = 'You are participating in the drum circle.';
+			break;
+		case 'tech':
+			ticket.participate = 'Tech';
+			_participate = 'You are participating as a tech.';
+			break;
+		case 'setup':
+			ticket.participate = 'Setup';
+			_participate = 'You are participating as setup crew.';
+			break;
+		case 'breakdown':
+			ticket.participate = 'Breakdown';
+			_participate = 'You are participating as breakdown crew.';
+			break;
+		case 'lighting':
+			ticket.participate = 'Lighting';
+			_participate = 'You are participating as lighting crew.';
+			break;
+		case 'decoration':
+			ticket.participate = 'Decoration';
+			_participate = 'You are participating as a decorator.';
+			break;
+		case 'flowerArranging':
+			ticket.participate = 'Flower Arranging';
+			_participate = 'You are participating in the flower arranging.';
+			break;
+		case 'fire':
+			ticket.participate = 'Fire';
+			_participate = 'You are participating as fire crew.';
+			break;
+		case 'altars':
+			ticket.participate = 'Altars';
+			_participate = 'You are participating in altar setup.';
+			break;
+		case 'host':
+			ticket.participate = 'Host';
+			_participate = 'You are participating as a host.';
+			break;
+		case 'yourIdea1':
+			ticket.participate = 'Your Idea';
+			_participate = 'You suggested your own participation.';
+			break;
+	} // end switch
+
+	switch(ticket.potluck) {
+		case 'tequila':
+			ticket.potluck = 'Tequila';
+			_potluck = 'You are bringing a bottle of tequila!';
+			break;
+		case 'dessert':
+			ticket.potluck = 'Dessert';
+			_potluck = 'You are bringing some dessert.';
+			break;
+		case 'partyFavors':
+			ticket.potluck = 'Party Favors';
+			_potluck = 'You are bringing some party favors.';
+			break;
+		case 'yourIdea2':
+			ticket.potluck = 'Your Idea';
+			_potluck = 'You suggested your own potluck item.';
+			break;
+	} // end switch
+
+	switch(ticket.patron) {
+		case 'patronDrink':
+			ticket.patron = 'The Drink';
+			_patron = 'You are a Patron of the Drink.';
+			break;
+		case 'sundayBrunch':
+			ticket.patron = 'Sunday Brunch';
+			_patron = 'You are a patron of Sunday Brunch';
+			break;
+		case 'chocolateBar':
+			ticket.patron = 'Chocolate Bar';
+			_patron = 'You are a patron of Chocolate Bar.';
+			break;
+		case 'pond':
+			ticket.patron = 'Swimming Hole';
+			_patron = 'You are a patron of our Swimming Hole.';
+			break;
+		case 'yourIdea3':
+			ticket.patron = 'Your Idea';
+			_patron = 'You selected your own donation destination!';
+			break;
+	} // end switch
+
+	switch(ticket.arrival) {
+		case 'arrival1':
+			ticket.arrival = 'Thursday 7/21';
+			_arrival = 'Thursday July 21st';
+			break;
+		case 'arrival2':
+			ticket.arrival = 'Friday 7/22';
+			_arrival = 'Friday July 22nd';
+			break;
+		case 'arrival3':
+			ticket.arrival = 'Saturday 7/23';
+			_arrival = 'Saturday July 23rd';
+			break;
+	} // end switch
+
+	switch(ticket.accommodation) {
+		case 'accommodation1':
+			ticket.accommodation = 'Tent';
+			_accomodation = 'Tent';
+			break;
+		case 'accommodation2':
+			ticket.accommodation = 'RV';
+			_accomodation = 'RV';
+			break;
+		case 'accommodation3':
+			ticket.accommodation = 'Hotel';
+			_accomodation = 'Hotel';
+			break;
+		case 'accommodation4':
+			ticket.accommodation = 'House';
+			_accomodation = 'House/Friends';
+			break;
+
+	} // end switch
+
+}
+
 
 module.exports.api = function(server, Base, Ticket) {
 
@@ -88,108 +235,14 @@ module.exports.api = function(server, Base, Ticket) {
 		function(req, res) {
 
 			var ticket = req.body.ticket,
-				j, arr, acc;
+						_attend,
+						_participate,
+						_potluck,
+						_patron,
+						_arrival,
+						_accomodation;
 
-			switch(ticket.job) {
-				case 'performer':
-					j = 'You are participating as a performer.';
-					break;
-				case 'lead':
-					j = 'You are participating as a team lead.';
-					break;
-				case 'You are participating in the drum circle.':
-					j = 'Dinner Preparation';
-					break;
-				case 'tech':
-					j = 'You are participating as a tech.';
-					break;
-				case 'setup':
-					j = 'You are participating as setup crew.';
-					break;
-				case 'breakdown':
-					j = 'You are participating as breakdown crew.';
-					break;
-				case 'lighting':
-					j = 'You are participating as lighting crew.';
-					break;
-				case 'decoration':
-					j = 'You are participating as a decorator.';
-					break;
-				case 'flowerArranging':
-					j = 'You are participating in the flower arranging.';
-					break;
-				case 'fire':
-					j = 'You are participating as fire crew.';
-					break;
-				case 'altars':
-					j = 'You are participating in altar setup.';
-					break;
-				case 'host':
-					j = 'You are participating as a host.';
-					break;
-				case 'yourIdea1':
-					j = 'You suggested your own participation.';
-					break;
-
-				case 'tequila':
-					j = 'You are bringing a bottle of tequila!';
-					break;
-				case 'dessert':
-					j = 'You are bringing some dessert.';
-					break;
-				case 'partyFavors':
-					j = 'You are bringing some party favors.';
-					break;
-				case 'yourIdea2':
-					j = 'You suggested your own potluck item.';
-					break;
-
-				case 'patronDrink':
-					j = 'You are a Patron of the Drink.';
-					break;
-				case 'sundayBrunch':
-					j = 'You are a patron of Sunday Brunch';
-					break;
-				case 'choclateBar':
-					j = 'You are a patron of Chocolate Bar.';
-					break;
-				case 'pond':
-					j = 'You are a patron of our Swimming Hole.';
-					break;
-				case 'yourIdea3':
-					j = 'You selected your own donation destination!';
-					break;
-			}
-
-			switch(ticket.arrival) {
-				case 'arrival1':
-					arr = 'Thursday July 21st';
-					break;
-				case 'arrival2':
-					arr = 'Friday July 22nd';
-					break;
-				case 'arrival3':
-					arr = 'Saturday July 23rd';
-					break;
-			}
-
-			switch(ticket.accommodation) {
-				case 'accommodation1':
-					acc = 'Tent';
-					break;
-				case 'accommodation2':
-					acc = 'RV';
-					break;
-				case 'accommodation3':
-					acc = 'Hotel';
-					break;
-				case 'accommodation4':
-					acc = 'House/Friends';
-					break;
-			}
-
-
-			console.log(req.body);
+			switchTitle(ticket, _accomodation, _arrival);
 
 			// var text = "Hey, this is a confirmation of your RSVP for the wedding of Jani and Lewis.\n\n";
 			// 	text = text + "CONTRIBUTION DETAILS: \n\n";
@@ -209,8 +262,8 @@ module.exports.api = function(server, Base, Ticket) {
 				text = text + "potluck: " + ticket.potluck + "\n";
 				text = text + "patron: " + ticket.patron + "\n\n";
 
-				text = text + "arrival: " + arr + "\n";
-				text = text + "accommodation: " + acc + "\n";
+				text = text + "arrival: " + ticket.arrival + "\n";
+				text = text + "accommodation: " + ticket.accomodation + "\n";
 				text = text + "message: " + ticket.personalMessage + "\n";
 
 
@@ -241,6 +294,10 @@ module.exports.api = function(server, Base, Ticket) {
 
 			var ticket = req.body.ticket;
 
+			switchTitle(ticket);
+
+			console.log('boink');
+
 			async.series([
 				function(step) {
 					var creds = require('../JaniLewis-d03f34a46662.json');
@@ -265,7 +322,7 @@ module.exports.api = function(server, Base, Ticket) {
 					sheet.addRow({
 						party: ticket.party_name,
 						email: ticket.email,
-						attending: ticket.attend,
+						attend: ticket.attend,
 						adults: ticket.num_adults,
 						kids: ticket.num_kids,
 						age: ticket.age_kids,
@@ -276,13 +333,12 @@ module.exports.api = function(server, Base, Ticket) {
 						patron: ticket.patron,
 						message: ticket.personalMessage
 
-					}, function(error, response) {
-						if (error) {
-							console.log(error);
+					}, function(err) {
+						if (err) {
+							console.log(err);
 						} else {
 							console.log('row sent ');
-
-							step();
+							res.send(200, {});
 						} // end else
 
 					});
