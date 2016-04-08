@@ -226,6 +226,7 @@ define(["jquery", "backbone", "icheck", "text!templates/pay.html", "text!templat
 
 				this.successPage();
 				this.sendEmail(this.model.toJSON());
+				this.updateSpreadsheet(this.model.toJSON());
 
 
 				} //end else
