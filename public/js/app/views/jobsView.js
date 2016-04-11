@@ -46,6 +46,8 @@ define(["jquery", "backbone", "icheck", "models/baseModel", "text!templates/jobs
 
 					this.participate = selection;
 
+					console.log(selection);
+
 				} // end else
 			},
 
