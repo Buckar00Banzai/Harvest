@@ -141,6 +141,7 @@ define(["jquery", "backbone", "icheck", "text!templates/pay.html", "text!templat
 				var job = this.model.get('job');
 				var food = this.model.get('food');
 				var attend = this.model.get('attend');
+				var arrival = this.model.get('arrival');
 				var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
 				this.updateMessage();
@@ -165,6 +166,11 @@ define(["jquery", "backbone", "icheck", "text!templates/pay.html", "text!templat
         		}else if (attend == "attendYes" && (num_adults == "" || num_adults == null)) {
 
 					$('#errors').html('You forgot to indicate the humber of adults! We need it for your confirmation.<br/>Please click on Previous or Info and fill out everything before confirming.<br/>Thanks!').fadeIn(400, function() {
+					});
+
+        		}else if (attend == "attendYes" && (arrival == "" || arrival == null)) {
+
+					$('#errors').html('You forgot to indicate your arrival date.<br/>Please click on Previous or Accomodations and pick an option under Arrival.<br/>Thanks!').fadeIn(400, function() {
 					});
 
         		}else {
