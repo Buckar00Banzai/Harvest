@@ -120,6 +120,13 @@ define(["jquery", "backbone", "icheck", "text!templates/pay.html", "text!templat
 
    //          },
 
+
+   			emailGood : function(email) {
+
+
+
+   			},
+
 			donate: function(e) {
 				e.preventDefault();
 
@@ -134,6 +141,7 @@ define(["jquery", "backbone", "icheck", "text!templates/pay.html", "text!templat
 				var job = this.model.get('job');
 				var food = this.model.get('food');
 				var attend = this.model.get('attend');
+				var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
 				this.updateMessage();
 				this.updateModel();
@@ -149,7 +157,12 @@ define(["jquery", "backbone", "icheck", "text!templates/pay.html", "text!templat
 
         			return false;
 
-        		}else if (attend == "attendYes" && num_adults == "") {
+        		}else if (!email.match(re)) {
+
+					$('#errors').html('The email you entered is not valid.<br/>Please click on Previous or Info and fill out everything before confirming.<br/>Thanks!').fadeIn(400, function() {
+					});
+
+        		}else if (attend == "attendYes" && (num_adults == "" || num_adults == null)) {
 
 					$('#errors').html('You forgot to indicate the humber of adults! We need it for your confirmation.<br/>Please click on Previous or Info and fill out everything before confirming.<br/>Thanks!').fadeIn(400, function() {
 					});
