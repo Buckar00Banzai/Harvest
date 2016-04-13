@@ -26,147 +26,158 @@ var doc = new GoogleSpreadsheet('1yay8AVwRMAksY0rrqAExsngqmd4m-Ofl0GmRXZOLK8g');
 
 var async = require("async");
 
+
+var participateText = "";
+var patronText = "";
+var potluckText = "";
+var attendText = "";
+var arrivalText = "";
+var accommodationText = "";
+
 function switchTitle(ticket, _accomodation, _arrival) {
 
 	switch(ticket.attend) {
 		case 'attendYes':
-			ticket.attend = 'Yes';
-			_attend = 'Yes';
+			attendText = 'Yes';
 			break;
 		case 'attendNo':
-			ticket.attend = 'No';
-			_attend = 'No';
+			attendText = 'No';
 			break;
 	} // end switch
 
-	switch(ticket.participate) {
-		case 'performer':
-			ticket.participate = 'Performer';
-			_participate = 'You are participating as a performer.';
-			break;
-		case 'lead':
-			ticket.participate = 'Lead';
-			_participate = 'You are participating as a team lead.';
-			break;
-		case 'drumCircle':
-			ticket.participate = 'Drum Circle';
-			_participate = 'You are participating in the drum circle.';
-			break;
-		case 'tech':
-			ticket.participate = 'Tech';
-			_participate = 'You are participating as a tech.';
-			break;
-		case 'setup':
-			ticket.participate = 'Setup';
-			_participate = 'You are participating as setup crew.';
-			break;
-		case 'breakdown':
-			ticket.participate = 'Breakdown';
-			_participate = 'You are participating as breakdown crew.';
-			break;
-		case 'lighting':
-			ticket.participate = 'Lighting';
-			_participate = 'You are participating as lighting crew.';
-			break;
-		case 'decoration':
-			ticket.participate = 'Decoration';
-			_participate = 'You are participating as a decorator.';
-			break;
-		case 'flowerArranging':
-			ticket.participate = 'Flower Arranging';
-			_participate = 'You are participating in the flower arranging.';
-			break;
-		case 'fire':
-			ticket.participate = 'Fire';
-			_participate = 'You are participating as fire crew.';
-			break;
-		case 'altars':
-			ticket.participate = 'Altars';
-			_participate = 'You are participating in altar setup.';
-			break;
-		case 'host':
-			ticket.participate = 'Host';
-			_participate = 'You are participating as a host.';
-			break;
-		case 'yourIdea1':
-			ticket.participate = 'Your Idea';
-			_participate = 'You suggested your own participation.';
-			break;
-	} // end switch
 
-	switch(ticket.potluck) {
-		case 'tequila':
-			ticket.potluck = 'Tequila';
-			_potluck = 'You are bringing a bottle of tequila!';
-			break;
-		case 'dessert':
-			ticket.potluck = 'Dessert';
-			_potluck = 'You are bringing some dessert.';
-			break;
-		case 'partyFavors':
-			ticket.potluck = 'Party Favors';
-			_potluck = 'You are bringing some party favors.';
-			break;
-		case 'yourIdea2':
-			ticket.potluck = 'Your Idea';
-			_potluck = 'You suggested your own potluck item.';
-			break;
-	} // end switch
+	if (ticket.participate) {
 
-	switch(ticket.patron) {
-		case 'patronDrink':
-			ticket.patron = 'The Drink';
-			_patron = 'You are a Patron of the Drink.';
-			break;
-		case 'sundayBrunch':
-			ticket.patron = 'Sunday Brunch';
-			_patron = 'You are a patron of Sunday Brunch';
-			break;
-		case 'chocolateBar':
-			ticket.patron = 'Chocolate Bar';
-			_patron = 'You are a patron of Chocolate Bar.';
-			break;
-		case 'pond':
-			ticket.patron = 'Swimming Hole';
-			_patron = 'You are a patron of our Swimming Hole.';
-			break;
-		case 'yourIdea3':
-			ticket.patron = 'Your Idea';
-			_patron = 'You selected your own donation destination!';
-			break;
-	} // end switch
+		ticket.participate.forEach(function(item) {
+
+			switch(item.name) {
+				case 'performer':
+					participateText = participateText + 'Performer \n';
+					break;
+				case 'lead':
+					participateText = participateText + 'Lead \n';
+					break;
+				case 'drumCircle':
+					participateText = participateText + 'Drum Circle \n';
+					break;
+				case 'tech':
+					participateText = participateText + 'Tech \n';
+					break;
+				case 'setup':
+					participateText = participateText + 'Setup \n';
+					break;
+				case 'breakdown':
+					participateText = participateText + 'Breakdown \n';
+					break;
+				case 'lighting':
+					participateText = participateText + 'Lighting \n';
+					break;
+				case 'decoration':
+					participateText = participateText + 'Decoration \n';
+					break;
+				case 'flowerArranging':
+					participateText = participateText + 'Flower Arranging \n';
+					break;
+				case 'fire':
+					participateText = participateText + 'Fire \n';
+					break;
+				case 'altars':
+					participateText = participateText + 'Altars \n';
+					break;
+				case 'host':
+					participateText = participateText + 'Host \n';
+					break;
+				case 'yourIdea1':
+					participateText = participateText + 'Your Idea \n';
+					break;
+			} // end switch
+
+		}); // end forEach
+
+		participateText = participateText.slice(0, participateText.length - 2);
+
+	}
+
+
+	if (ticket.patron) {
+
+		ticket.patron.forEach(function(item) {
+
+			switch(item.name) {
+				case 'patronDrink':
+					patronText = patronText + 'The Drink \n';
+					break;
+				case 'sundayBrunch':
+					patronText = patronText + 'Sunday Brunch \n';
+					break;
+				case 'chocolateBar':
+					patronText = patronText + 'Chocolate Bar \n';
+					break;
+				case 'pond':
+					patronText = patronText + 'Swimming Hole \n';
+					break;
+				case 'yourIdea3':
+					patronText = patronText + 'Your Idea \n';
+					break;
+			} // end switch
+
+		});
+
+		patronText = patronText.slice(0, patronText.length - 2);
+
+	}
+
+
+	if (ticket.potluck) {
+
+		ticket.potluck.forEach(function(item) {
+
+			switch(item.name) {
+				case 'tequila':
+					potluckText = potluckText + 'Tequila \n';
+					break;
+				case 'dessert':
+					potluckText = potluckText + 'Dessert \n';
+					break;
+				case 'partyFavors':
+					potluckText = potluckText + 'Party Favors \n';
+					break;
+				case 'yourIdea2':
+					potluckText = potluckText + 'Your Idea \n';
+					break;
+			} // end switch
+
+		});
+
+		potluckText = potluckText.slice(0, potluckText.length - 2);
+
+	}
+
 
 	switch(ticket.arrival) {
 		case 'arrival1':
-			ticket.arrival = 'Thursday 7/21';
-			_arrival = 'Thursday July 21st';
+			arrivalText = 'Thursday 7/21';
 			break;
 		case 'arrival2':
-			ticket.arrival = 'Friday 7/22';
-			_arrival = 'Friday July 22nd';
+			arrivalText = 'Friday 7/22';
 			break;
 		case 'arrival3':
-			ticket.arrival = 'Saturday 7/23';
-			_arrival = 'Saturday July 23rd';
+			arrivalText = 'Saturday 7/23';
 			break;
 	} // end switch
 
 	switch(ticket.accommodation) {
 		case 'accommodation1':
-			ticket.accommodation = 'Tent';
-			_accomodation = 'Tent';
+			accommodationText = 'Tent';
 			break;
 		case 'accommodation2':
-			ticket.accommodation = 'RV';
-			_accomodation = 'RV';
+			accommodationText = 'RV';
 			break;
 		case 'accommodation3':
-			ticket.accommodation = 'Hotel';
-			_accomodation = 'Hotel';
+			accommodationText = 'Hotel';
 			break;
 		case 'accommodation4':
-			ticket.accommodation = 'House';
-			_accomodation = 'House/Friends';
+			accommodationText = 'House';
 			break;
 
 	} // end switch
@@ -234,15 +245,10 @@ module.exports.api = function(server, Base, Ticket) {
 	server.post('/api/sendEmail',
 		function(req, res) {
 
-			var ticket = req.body.ticket,
-						_attend,
-						_participate,
-						_potluck,
-						_patron,
-						_arrival,
-						_accomodation;
+			var ticket = req.body.ticket;
 
-			switchTitle(ticket, _accomodation, _arrival);
+
+			switchTitle(ticket);
 
 			// var text = "Hey, this is a confirmation of your RSVP for the wedding of Jani and Lewis.\n\n";
 			// 	text = text + "CONTRIBUTION DETAILS: \n\n";
@@ -256,14 +262,14 @@ module.exports.api = function(server, Base, Ticket) {
 				text = text + "adults: " + ticket.num_adults + "\n";
 				text = text + "kids: " + ticket.num_kids + "\n";
 				text = text + "age: " + ticket.age_kids + "\n";
-				text = text + "attending: " + ticket.attend + "\n\n";
+				text = text + "attending: " + attendText + "\n\n";
 
-				text = text + "participate: " + ticket.participate + "\n";
-				text = text + "potluck: " + ticket.potluck + "\n";
-				text = text + "patron: " + ticket.patron + "\n\n";
+				text = text + "participate: " + participateText + "\n";
+				text = text + "potluck: " + potluckText + "\n";
+				text = text + "patron: " + patronText + "\n\n";
 
-				text = text + "arrival: " + ticket.arrival + "\n";
-				text = text + "accommodation: " + ticket.accomodation + "\n";
+				text = text + "arrival: " + arrivalText + "\n";
+				text = text + "accommodation: " + accommodationText + "\n";
 				text = text + "message: " + ticket.personalMessage + "\n";
 
 
@@ -294,10 +300,6 @@ module.exports.api = function(server, Base, Ticket) {
 
 			var ticket = req.body.ticket;
 
-			switchTitle(ticket);
-
-			console.log('boink');
-
 			async.series([
 				function(step) {
 					var creds = require('../JaniLewis-d03f34a46662.json');
@@ -322,15 +324,15 @@ module.exports.api = function(server, Base, Ticket) {
 					sheet.addRow({
 						party: ticket.party_name,
 						email: ticket.email,
-						attend: ticket.attend,
+						attend: attendText,
 						adults: ticket.num_adults,
 						kids: ticket.num_kids,
 						age: ticket.age_kids,
-						arrival: ticket.arrival,
-						housing: ticket.accommodation,
-						participate: ticket.participate,
-						potluck: ticket.potluck,
-						patron: ticket.patron,
+						arrival: arrivalText,
+						housing: accommodationText,
+						participate: participateText,
+						potluck: potluckText,
+						patron: patronText,
 						message: ticket.personalMessage
 
 					}, function(err) {

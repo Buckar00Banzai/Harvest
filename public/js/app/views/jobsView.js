@@ -7,70 +7,109 @@ define(["jquery", "backbone", "icheck", "models/baseModel", "text!templates/jobs
 
 		var InfoView = Backbone.View.extend({
 
-			tagName: 'div',
+		    tagName: 'div',
 
-			participate: null,
+			// var foods = [];
 
-			potluck: null,
+			participate: [],
 
-			patron: null,
+			patron: [],
 
-			initialize: function(options) {
+			potluck: [],
+
+			initialize: function (options) {
 
 				this.options = options || {};
 
 				_.bindAll(this, 'render', 'updateModel');
 
-				this.template = _.template(template);
+				this.template =  _.template(template);
 
 			},
 
 			events: {
-				'ifChanged input': 'selectJob',
-				// 'change text': 'selectIdea'
+				// "click #add-food": "addFood"
+				"ifClicked input": "updateArray",
+				// "change text" : "addIdea"
 			},
 
-			selectJob: function(e) {
+			// addFood: function(e) {
+			// 	e.preventDefault();
+			// 	var clone = $('.food-input:first');
+			// 	clone.clone().appendTo('#food-clone').val('').focus();
+			// },
 
-				var selection = $(e.target).val();
+			objectIndex: function(arr,selection) {
 
-				if (selection == 'dessert' || selection == 'tequila' || selection == 'partyFavors' || selection == 'yourIdea2') {
+				arr.findIndex(function(item) {
+					return item.name === selection;
+				});
 
-					this.potluck = selection;
+			},
 
-				} else if (selection == 'patronDrink' || selection == 'chocolateBar' || selection == 'sundayBrunch' || selection == 'pond' || selection == 'yourIdea3') {
+			updateArray: function(e) {
 
-					this.patron = selection;
+				console.log('start');
+
+				var id = $(e.target).attr('id');
+
+				var name = $(e.target).attr('name');
+
+				console.log("id= " + id);
+				console.log("name= " + name);
+
+				var contribution =  null;
+
+				switch(name) {
+					case 'participate':
+						contribution = this.participate;
+						break;
+
+					case 'patron':
+						contribution = this.patron;
+						break;
+
+					case 'potluck':
+						contribution = this.potluck;
+						break;
+
+				}
+
+				console.log("contribution= " + contribution);
+
+				var i = contribution.findIndex(function(item) {
+					return item.name === id;
+				});
+
+				console.log("i= " + i);
+
+				if ((i || i == 0) && i != -1) {
+
+					contribution.splice(i, 1);
 
 				} else {
 
-					this.participate = selection;
+					contribution.push({name:id});
 
-					console.log(selection);
+				}
 
-				} // end else
+				console.log('contribution= ' + contribution);
+
 			},
 
-			// selectIdea: function(e) {
+			// addIdea: function(e) {
 
-			// 	var newIdea = $(e.target).val();
+			// 	var idea = $(e.target).val();
 
-			// 	var id = $(e.target).id();
+			// 	var array = $(e.target).attr('name');
 
-			// 	if (id == 'yourIdea1') {
 
-			// 		this.potluck = newIdea;
 
-			// 	} else if (id == 'yourIdea2') {
+			// },
 
-			// 		this.patron = newIdea;
-
-			// 	} else if (id == 'yourIdea3') {
-
-			// 		this.participate = newIdea;
-
-			// 	} // end if				
-
+			// restoreFood: function(food) {
+			// 	var clone = $('.food-input:first');
+			// 	clone.clone().appendTo('#food-clone').val(food);
 			// },
 
 			initHoverHelp: function() {
@@ -103,7 +142,7 @@ define(["jquery", "backbone", "icheck", "models/baseModel", "text!templates/jobs
 
             },
 
-			render: function() {
+			render: function () {
 
 				var _this = this;
 
@@ -113,29 +152,63 @@ define(["jquery", "backbone", "icheck", "models/baseModel", "text!templates/jobs
 
 				setTimeout(function() {
 					$('input').iCheck({
-						radioClass: 'iradio_flat-blue'
+						checkboxClass: 'iradio_flat-blue'
 					});
 					_this.initHoverHelp();
 				}, 1);
 
-				if(this.participate !== null) {
-					$('#' + this.participate).iCheck('check');
+
+				if (this.model.attributes.participate) {
+
+					$(this.model.attributes.participate).each(function() {
+
+						$('#' + this.name).iCheck('check');
+
+					});
 				}
 
-				if(this.potluck !== null) {
-					$('#' + this.potluck).iCheck('check');
+
+				if (this.model.attributes.patron) {
+
+					$(this.model.attributes.patron).each(function() {
+
+						$('#' + this.name).iCheck('check');
+
+					});
 				}
 
-				if(this.patron !== null) {
-					$('#' + this.patron).iCheck('check');
+
+				if (this.model.attributes.potluck) {
+
+					$(this.model.attributes.potluck).each(function() {
+
+						$('#' + this.name).iCheck('check');
+
+					});
 				}
+
+				// if (this.model.attributes.food.length !== 0) {
+				// 	$(this.model.attributes.food).each(function(i, food){
+				// 		if(i === 0) {
+				// 			$('.food-input:first').val(food);
+				// 		} else {
+				// 			_this.restoreFood(food);
+				// 		}
+				// 	});
+				// }
 
 				$(document).scrollTop(0);
 				return this;
-
 			},
 
-			updateModel: function() {
+			updateModel: function(){
+
+				// $('.food-input').each(function(i, food) {
+				// 	if($(this).val() === '') {
+				// 		return;
+				// 	}
+				// 	foods.push($(this).val());
+				// });
 
 				var _this = this;
 
@@ -149,7 +222,7 @@ define(["jquery", "backbone", "icheck", "models/baseModel", "text!templates/jobs
 
 		});
 
-		return InfoView;
+    return InfoView;
 
 	}
 );

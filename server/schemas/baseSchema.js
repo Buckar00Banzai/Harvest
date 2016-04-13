@@ -102,30 +102,78 @@ module.exports.updateBase = function(req, res) {
 
     doc.tickets = doc.tickets + 1;
 
-    doc[patron] = doc[patron] + 1;
-
     doc[arrival] = doc[arrival] + 1;
 
+    // doc[patron] = doc[patron] + 1;
 
-    if (participate == "yourIdea1") {
+    if (patron) {
+      for (var i = 0; i < patron.length; i++) {
 
-      doc[participate] = doc[participate] + 1;
+        var _name = patron[i].name;
 
-    } else {
+        doc[_name] = doc[_name] + 1;
 
-      doc[participate] = doc[participate] - 1;
+      } // end for
+    } // end if
 
-    } // end else
+    if (participate) {
+      for (var i = 0; i < participate.length; i++) {
 
-    if (potluck == "partyFavors" || potluck == "yourIdea2") {
+        var _name = participate[i].name;
 
-      doc[potluck] = doc[potluck] + 1;
+        if (_name == "yourIdea1") {
 
-    } else {
+          doc[_name] = doc[_name] + 1;
 
-      doc[potluck] = doc[potluck] - 1;
+        } else {
 
-    } // end else
+          doc[_name] = doc[_name] - 1;          
+
+        }
+
+      } // end for
+    } // end if
+
+    if (potluck) {
+      for (var i = 0; i < potluck.length; i++) {
+
+        var _name = potluck[i].name;
+
+        if (_name == "partyFavors" || _name == "yourIdea2") {
+
+          doc[_name] = doc[_name] + 1;
+
+        } else {
+
+          doc[_name] = doc[_name] - 1;          
+
+        }
+
+      } // end for
+    } // end if
+
+
+    // if (participate == "yourIdea1") {
+
+    //   doc[participate] = doc[participate] + 1;
+
+    // } else {
+
+    //   doc[participate] = doc[participate] - 1;
+
+    // } // end else
+
+    // if (potluck == "partyFavors" || potluck == "yourIdea2") {
+
+    //   doc[potluck] = doc[potluck] + 1;
+
+    // } else {
+
+    //   doc[potluck] = doc[potluck] - 1;
+
+    // } // end else
+
+
 
     if (accommodation == "accommodation3" || accommodation == "accommodation4") {
 

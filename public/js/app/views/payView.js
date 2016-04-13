@@ -34,34 +34,43 @@ define(["jquery", "backbone", "icheck", "text!templates/pay.html", "text!templat
 				this.personalMessage = $('#personalMessage').val();
 			},
 
-			parseDescription: function(e) {
+			parseDescription: function() {
 
-				var description = this.model.get('patron')
+				var patronArray = this.model.get('patron');
 
-				if (description == "patronDrink") {
+				var description = "";
 
-					description = "The Drink";
-				
-				} else if (description == "chocolateBar") {
+				if (patronArray) {
 
-					description = "Chocolate Bar";
+					patronArray.forEach(function(item) {
 
-				} else if (description == "sundayBrunch") {
+						switch(item.name) {
+							case 'patronDrink':
+								description = description + 'The Drink \n';
+								break;
+							case 'chocolateBar':
+								description = description + 'Chocolate Bar \n';
+								break;
+							case 'sundayBrunch':
+								description = description + 'Sunday Brunch \n';
+								break;
+							case 'pond':
+								description = description + 'Swimming Hole \n';
+								break;
+							case 'yourIdea3':
+								description = description + 'Your Idea \n';
+								break;
+						} // end switch
 
-					description = "Sunday Brunch";
+					}); // end forEach
 
-				} else if (description == "pond") {
-
-					description = "The Swimming Hole";
-
-				} else if (description == "yourIdea3") {
-
-					description = "yourIdea3";
+					description = description.slice(0, description.length - 2);
 
 				} else {
 
 					description = "Open Donation";
-				} // end else
+
+				}
 
 				return description;
 
@@ -120,12 +129,6 @@ define(["jquery", "backbone", "icheck", "text!templates/pay.html", "text!templat
 
    //          },
 
-
-   			emailGood : function(email) {
-
-
-
-   			},
 
 			donate: function(e) {
 				e.preventDefault();

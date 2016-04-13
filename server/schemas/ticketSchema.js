@@ -29,13 +29,13 @@ var ticketSchema = new Schema({
 	},
 
 	participate: {
-		type: String
+		type: Array
 	},
 	potluck: {
-		type: String
+		type: Array
 	},
 	patron: {
-		type: String
+		type: Array
 	},
 
 	arrival: {
