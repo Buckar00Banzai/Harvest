@@ -78,8 +78,8 @@ define(["jquery", "backbone", "icheck", "models/baseModel", "text!templates/deta
 					this.model.set({
 							party_name: $('#party-name').val(),
 							email: $('#email').val(),
-							num_adults: 0,
-							num_kids: 0,
+							num_adults: null,
+							num_kids: null,
 							age_kids: $('#age-kids').val(),
 							attend: _this.attend
 						});

@@ -257,20 +257,23 @@ module.exports.api = function(server, Base, Ticket) {
 			// 	text = text + "Accommodation: " + acc + "\n\n\n";
 			// 	text = text + "ADDRESS + DIRECTIONS:\n\n Growing Heart Farm\n\n";
 
-			var text = "this is a test to see what data we are passing! \n\n";
-				text = text + "party name: " + ticket.party_name + "\n";
-				text = text + "adults: " + ticket.num_adults + "\n";
-				text = text + "kids: " + ticket.num_kids + "\n";
-				text = text + "age: " + ticket.age_kids + "\n";
-				text = text + "attending: " + attendText + "\n\n";
+			var text = "Thank you so much for your RSVP! \n\n";
+				text = text + "The name of your party: " + ticket.party_name + "\n";
+				if (ticket.num_adults) text = text + "Number of adults: " + ticket.num_adults + "\n";
+				if (ticket.num_kids) text = text + "Number of kids: " + ticket.num_kids + "\n";
+				if (ticket.age_kids) text = text + "Age: " + ticket.age_kids + "\n";
+				text = text + "Attending the wedding: " + attendText + "\n\n";
+				
+				if (ticket.arrival) text = text + "Arrival date: " + arrivalText + "\n";
+				if (ticket.accommodation) text = text + "Accommodation: " + accommodationText + "\n";
+				
+				text = text + '\n';
+				
+				if (ticket.participate) text = text + "Thanks for participating! You chose: \n" + participateText + "\n\n";
+				if (ticket.potluck) text = text + "Thanks for contributing to the potluck! You chose: \n" + potluckText + "\n\n";
+				if (ticket.patron) text = text + "Thank you for being a patron! You chose: \n" + patronText + "\n\n";
 
-				text = text + "participate: " + participateText + "\n";
-				text = text + "potluck: " + potluckText + "\n";
-				text = text + "patron: " + patronText + "\n\n";
-
-				text = text + "arrival: " + arrivalText + "\n";
-				text = text + "accommodation: " + accommodationText + "\n";
-				text = text + "message: " + ticket.personalMessage + "\n";
+				if (ticket.personalMessage) text = text + "Personal message: " + ticket.personalMessage + "\n";
 
 
 			var mailOptions = {
