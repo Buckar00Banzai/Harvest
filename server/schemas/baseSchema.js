@@ -27,7 +27,7 @@ var baseSchema = new Schema({
   fire: {type: Number, default: 20},
   altars: {type: Number, default: 8},
   host: {type: Number, default: 50},
-  yourIdea1: {type: Number, default: 200},
+  yourIdea1: {type: Number, default: 0},
 
 
   dessert: {type: Number, default: 60},
@@ -51,8 +51,6 @@ var baseSchema = new Schema({
   accommodation3: {type: Number, default: 0},
   accommodation4: {type: Number, default: 0},
 
-
-  // foodList: {type: Array}
 });
 
 // CREATE DATABASE MODEL
@@ -80,9 +78,6 @@ module.exports.createBase = function(req, res) {
 
 module.exports.updateBase = function(req, res) {
 
-  // var job = req.body.job,
-  //     foods = req.body.food;
-
   var participate = req.body.participate,
       potluck = req.body.potluck,
       patron = req.body.patron,
@@ -92,17 +87,10 @@ module.exports.updateBase = function(req, res) {
 
   baseModel.findOne({'key': 0}, function(err, doc){
     if(err) throw err;
-    // if(foods) {
-    //   for (var i = 0; i < foods.length; i++) {
-    //     doc.foodList.push(foods[i]);
-    //   }
-    // }
 
     doc.tickets = doc.tickets + 1;
 
     doc[arrival] = doc[arrival] + 1;
-
-    // doc[patron] = doc[patron] + 1;
 
     if (patron) {
       for (var i = 0; i < patron.length; i++) {
@@ -150,26 +138,6 @@ module.exports.updateBase = function(req, res) {
       } // end for
     } // end if
 
-
-    // if (participate == "yourIdea1") {
-
-    //   doc[participate] = doc[participate] + 1;
-
-    // } else {
-
-    //   doc[participate] = doc[participate] - 1;
-
-    // } // end else
-
-    // if (potluck == "partyFavors" || potluck == "yourIdea2") {
-
-    //   doc[potluck] = doc[potluck] + 1;
-
-    // } else {
-
-    //   doc[potluck] = doc[potluck] - 1;
-
-    // } // end else
 
 
 

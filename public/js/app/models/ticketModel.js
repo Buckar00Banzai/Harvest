@@ -14,11 +14,6 @@ define(["jquery", "backbone"],
 
             },
 
-            // Default values for all of the Model attributes
-            defaults: {
-                food: []
-            },
-
             // Gets called automatically by Backbone when the set and/or save methods are called (Add your own logic)
             validate: function(attrs) {
 

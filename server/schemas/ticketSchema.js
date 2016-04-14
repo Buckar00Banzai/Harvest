@@ -48,18 +48,6 @@ var ticketSchema = new Schema({
 	personalMessage: {
 		type: String
 	},
-
-	// paid: {
-	// 	type: Boolean,
-	// 	default: false
-	// },
-	// room: {
-	// 	type: Boolean,
-	// 	default: false
-	// },
-	// food: {
-	// 	type: Array
-	// },
 	
 	timestamp: {
 		type: Date,
@@ -81,6 +69,7 @@ module.exports.createTicket = function(req, res) {
 	ticketModel.create(req.body, function(err, docs) {
 		if (err) throw err;
 		console.log('Ticket created for ' + req.body.party_name);
+		console.log(req.body);
 		res.send(200, docs);
 	});
 }

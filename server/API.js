@@ -199,44 +199,6 @@ module.exports.api = function(server, Base, Ticket) {
 		Base.updateBase
 	);
 
-	// server.post('/api/authPayment', function(req, res) {
-
-	// 	var payment_details = {
-	// 		"intent": "sale",
-	// 		"payer": {
-	// 			"payment_method": "credit_card",
-	// 			"funding_instruments": [{
-	// 				"credit_card": {
-	// 					"number": req.body.payment.number,
-	// 					"type": req.body.payment.type,
-	// 					"expire_month": req.body.payment.expire_month,
-	// 					"expire_year": req.body.payment.expire_year,
-	// 					"cvv2": req.body.payment.cvv2,
-	// 					"first_name": req.body.payment.first_name,
-	// 					"last_name": req.body.payment.last_name,
-	// 				}
-	// 			}]
-	// 		},
-	// 		"transactions": [{
-	// 			"amount": {
-	// 				"total": req.body.payment.subtotal,
-	// 				"currency": "USD",
-	// 			},
-	// 			"description": "Midnight Summer Moon Donation"
-	// 		}]
-	// 	};
-
-	// 	paypal_sdk.payment.create(payment_details, function(error, payment) {
-	// 		if (error) {
-	// 			console.error(error);
-	// 			res.send(400, error);
-	// 		} else {
-	// 			console.log(req.body.ticket.party_name + ' bought a ticket!');
-	// 			res.send(200, payment);
-	// 		}
-	// 	});
-
-	// });
 
 	server.post('/api/tickets',
 		Ticket.createTicket
@@ -249,13 +211,6 @@ module.exports.api = function(server, Base, Ticket) {
 
 
 			switchTitle(ticket);
-
-			// var text = "Hey, this is a confirmation of your RSVP for the wedding of Jani and Lewis.\n\n";
-			// 	text = text + "CONTRIBUTION DETAILS: \n\n";
-			// 	text = text + "Participation: " + j + "\n\n";
-			// 	text = text + "Arrival: " + arr + "\n";
-			// 	text = text + "Accommodation: " + acc + "\n\n\n";
-			// 	text = text + "ADDRESS + DIRECTIONS:\n\n Growing Heart Farm\n\n";
 
 			var text = "Thank you so much for your RSVP! \n\n";
 				text = text + "The name of your party: " + ticket.party_name + "\n";

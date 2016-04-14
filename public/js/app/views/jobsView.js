@@ -80,13 +80,11 @@ define(["jquery", "backbone", "icheck", "models/baseModel", "text!templates/jobs
 				if ((i || i == 0)&& i != -1) {
 
 					contribution.splice(i, 1);
-					console.log("removed");
 
 					if (id == 'yourIdea1' || id == 'yourIdea2' || id == 'yourIdea3') {
 
 						$('input[id=' + id + 'Text]').prop('disabled', true);
-
-						console.log("disabled");
+						$('input[id=' + id + 'Text]').val("");
 
 					}
 
@@ -138,21 +136,6 @@ define(["jquery", "backbone", "icheck", "models/baseModel", "text!templates/jobs
 				};
 
 			},
-
-			// addIdea: function(e) {
-
-			// 	var idea = $(e.target).val();
-
-			// 	var array = $(e.target).attr('name');
-
-
-
-			// },
-
-			// restoreFood: function(food) {
-			// 	var clone = $('.food-input:first');
-			// 	clone.clone().appendTo('#food-clone').val(food);
-			// },
 
 			initHoverHelp: function() {
 
@@ -251,28 +234,11 @@ define(["jquery", "backbone", "icheck", "models/baseModel", "text!templates/jobs
 					});
 				}
 
-				// if (this.model.attributes.food.length !== 0) {
-				// 	$(this.model.attributes.food).each(function(i, food){
-				// 		if(i === 0) {
-				// 			$('.food-input:first').val(food);
-				// 		} else {
-				// 			_this.restoreFood(food);
-				// 		}
-				// 	});
-				// }
-
 				$(document).scrollTop(0);
 				return this;
 			},
 
 			updateModel: function(){
-
-				// $('.food-input').each(function(i, food) {
-				// 	if($(this).val() === '') {
-				// 		return;
-				// 	}
-				// 	foods.push($(this).val());
-				// });
 
 				var _this = this;
 

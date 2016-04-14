@@ -25,9 +25,6 @@ define(["jquery", "backbone", "icheck", "text!templates/pay.html", "text!templat
 			events: {
 				'click #donate': 'donate',
 				'change #personalMessage': 'updateMessage',
-				// 'ifToggled .cards': 'selectCard',
-				// 'ifToggled .payTier': 'selectPayTier'
-				//'ifToggled #openSelector': 'selectPayTierOpen'
 			},
 
 			updateMessage: function(e) {
@@ -74,75 +71,17 @@ define(["jquery", "backbone", "icheck", "text!templates/pay.html", "text!templat
 
 				return description;
 
-				// $('#paypal').val(patron);
 			},
 
-			// selectCard: function(e) {
-			// 	this.card = $(e.target).attr('id');
-			// },
-
-			// selectPayTier: function(e) {
-				
-			// 	this.payTier = $(e.target).val();
-
-				//if (tier === null){
-				//	this.payTier = $('#donation_amount').val()
-				//} else {
-				//	this.payTier = tier;
-				//}
-			// },
-
-
-			// selectPayTierOpen: function(e) {
-				
-			// 	this.payTier = $('#openAmount').val();
-
-			// },
-
-			// initHoverHelp: function() {
-
-   //              var ele = $('.payTier-description'),
-   //              	title = $('.payTier-title');
-
-
-			// 	$('.tt').click(function(e) {
-
-   //                  var message = $(this).data('message');
-   //                  	payTierTitle = $(this).data('title');
-
-   //                  ele.html(message);
-
-   //                  title.html(payTierTitle);
-
-   //              });
-
-			// 	$('input[name=payTier]').on('ifChanged', function(e) {
-
-   //                  var message = $(this).parent().parent().find('.tt').data('message');
-   //                  	payTierTitle = $(this).parent().parent().find('.tt').data('title');
-
-   //                  ele.html(message);
-
-   //                  title.html(payTierTitle);
-
-   //              });
-
-   //          },
 
 
 			donate: function(e) {
 				e.preventDefault();
-
-				// var _this = this;
-
-
-				// var open_donation = document.getElementById("open").value;
 			
 				var party_name = this.model.get('party_name');
 				var email = this.model.get('email');
 				var num_adults = this.model.get('num_adults');
 				var job = this.model.get('job');
-				var food = this.model.get('food');
 				var attend = this.model.get('attend');
 				var arrival = this.model.get('arrival');
 				var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -151,8 +90,6 @@ define(["jquery", "backbone", "icheck", "text!templates/pay.html", "text!templat
 				this.updateModel();
 
 				if(party_name == null || party_name == "" || email == null || email == "" || attend == null || attend == "") {
-
-					//alert("Hey little llama you forgot some info in the Nominate section! We need it to generate your ticket. Please click on Previous or Nominate and be sure to fill out your first and last name and your email address before donating. Thanks!");
         			
 
 					$('#errors').html('Some info is missing in the INFO section! We need it for your confirmation.<br/>Please click on Previous or Info and fill out everything before confirming.<br/>Thanks!').fadeIn(400, function() {
@@ -178,76 +115,6 @@ define(["jquery", "backbone", "icheck", "text!templates/pay.html", "text!templat
 
         		}else {
 
-				//check if there is a value in the text field for open donation and swap the payTier value if there is one
-
-				// if(open_donation) {
-
-				// 	if(open_donation < 154.80) {
-				// 		$('#errors').html('Open Donations must be a minimum of $154.80.<br/><br/>Thank you for your generosity!').fadeIn(400, function() {
-				// 		});
-
-				// 		return;
-				// 	}
-
-				// 	this.payTier = open_donation;
-				// } 
-
-				//changes "Donate" button text and styles while processing
-				// $(e.target).closest('button').removeClass('btn-primary').addClass('btn-warning disabled').html('Processing...');
-				// var msg = '<span class="hold-on pull-right">This may take a few minutes... </span>';
-				// $(msg).insertAfter($(e.target));
-
-				// (function loop() {
-				// 	$('.hold-on').animate({opacity:'+=1'}, 1000);
-				// 	$('.hold-on').animate({opacity:'-=0.5'}, 1000, loop);
-				// })();
-
-
-				// var payload = {
-
-				// 	// payment: {
-				// 	// 	first_name: $('#first_name').val(),
-				// 	// 	last_name: $('#last_name').val(),
-				// 	// 	type: this.card,
-				// 	// 	number: $('#cc-1').val() + $('#cc-2').val() + $('#cc-3').val() + $('#cc-4').val(),
-				// 	// 	expire_month: parseInt($('#exp-month').val(), 10),
-				// 	// 	expire_year: $('#exp-year').val(),
-				// 	// 	cvv2: $('#cvv').val(),
-				// 	// 	subtotal: this.payTier,
-				// 	// 	//total: this.payTier + ".10",
-				// 	// },
-
-				// 	ticket: this.model.toJSON()
-				// };
-
-				// $.ajax({
-				// 	url: '/api/authPayment',
-				// 	type: 'POST',
-				// 	dataType: 'JSON',
-				// 	data: payload,
-				// })
-				// 	.done(function(data) {
-				// 		$(e.target).closest('button').removeClass('btn-warning').addClass('btn-success').html('Approved!');
-				// 		_this.successPage();
-				// 		_this.sendEmail(data, _this.model.toJSON());
-				// 	})
-				// 	.fail(function(error) {
-				// 		$(e.target).closest('button').removeClass('btn-warning disabled').addClass('btn-primary').html('<i class="fa fa-heart"></i> Donate!');
-				// 		$('#errors').html('There was an error processing your donation.  Check your info and try again!').fadeIn(400, function() {
-				// 			setTimeout(function() {
-				// 				$('#errors').fadeOut(400, function() {
-				// 					$(this).html('');
-				// 				});
-				// 			}, 2000);
-				// 		});
-				// 	})
-				// 	.always(function() {
-				// 		$('#cc-1').val();
-				// 		$('#cc-2').val();
-				// 		$('#cc-3').val();
-				// 		$('#cc-4').val();
-				// 		$('.hold-on').hide();
-				// 	});
 
 				this.successPage();
 				this.sendEmail(this.model.toJSON());
@@ -314,9 +181,6 @@ define(["jquery", "backbone", "icheck", "text!templates/pay.html", "text!templat
 							type: 'POST',
 							dataType: 'JSON',
 							data: {
-								// job: job,
-								// food: food,
-								// payTier: payTier
 								attend: attend,
 								participate: participate,
 								potluck: potluck,
