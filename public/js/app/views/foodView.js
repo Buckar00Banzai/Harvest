@@ -40,8 +40,7 @@ define(["jquery", "backbone", "icheck", "models/baseModel", "text!templates/food
 					this.accommodation = selection;
 
 				}
-				console.log ('arrival: ' + this.arrival);
-				console.log('accommodation: ' + this.accommodation);
+
 			},
 
 			initHoverHelp: function() {

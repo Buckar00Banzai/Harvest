@@ -30,6 +30,9 @@ define(["jquery", "backbone", "icheck", "models/baseModel", "text!templates/jobs
 			events: {
 				// "click #add-food": "addFood"
 				"ifClicked input": "updateArray",
+				"change #yourIdea1Text": "updateIdea",
+				"change #yourIdea2Text": "updateIdea",
+				"change #yourIdea3Text": "updateIdea",
 				// "change text" : "addIdea"
 			},
 
@@ -49,14 +52,9 @@ define(["jquery", "backbone", "icheck", "models/baseModel", "text!templates/jobs
 
 			updateArray: function(e) {
 
-				console.log('start');
-
 				var id = $(e.target).attr('id');
 
 				var name = $(e.target).attr('name');
-
-				console.log("id= " + id);
-				console.log("name= " + name);
 
 				var contribution =  null;
 
@@ -75,25 +73,69 @@ define(["jquery", "backbone", "icheck", "models/baseModel", "text!templates/jobs
 
 				}
 
-				console.log("contribution= " + contribution);
-
 				var i = contribution.findIndex(function(item) {
 					return item.name === id;
 				});
 
-				console.log("i= " + i);
-
-				if ((i || i == 0) && i != -1) {
+				if ((i || i == 0)&& i != -1) {
 
 					contribution.splice(i, 1);
+					console.log("removed");
+
+					if (id == 'yourIdea1' || id == 'yourIdea2' || id == 'yourIdea3') {
+
+						$('input[id=' + id + 'Text]').prop('disabled', true);
+
+						console.log("disabled");
+
+					}
 
 				} else {
 
 					contribution.push({name:id});
 
+					if (id == 'yourIdea1' || id == 'yourIdea2' || id == 'yourIdea3') {
+
+						$('input[id=' + id + 'Text]').prop('disabled', false);
+
+					}
+
 				}
 
-				console.log('contribution= ' + contribution);
+			},
+
+			updateIdea: function(e) {
+
+				var target = $(e.target).attr('id');
+
+				var id = target.slice(0, target.length - 4);
+
+				var name = $(e.target).attr('name');
+
+				var contribution =  null;
+
+				switch(name) {
+					case 'participate':
+						contribution = this.participate;
+						break;
+
+					case 'patron':
+						contribution = this.patron;
+						break;
+
+					case 'potluck':
+						contribution = this.potluck;
+						break;
+				}
+
+				var i = contribution.findIndex(function(item) {
+					return item.name === id;
+				});
+
+				contribution[i] = {
+					name: id,
+					text: $('input[id=' + id + 'Text]').val()
+				};
 
 			},
 
@@ -164,6 +206,14 @@ define(["jquery", "backbone", "icheck", "models/baseModel", "text!templates/jobs
 
 						$('#' + this.name).iCheck('check');
 
+						if (this.name == 'yourIdea1') {
+
+							$('#yourIdea1Text').prop('disabled', false);
+
+							$('#yourIdea1Text').val(this.text);
+
+						}
+
 					});
 				}
 
@@ -174,6 +224,13 @@ define(["jquery", "backbone", "icheck", "models/baseModel", "text!templates/jobs
 
 						$('#' + this.name).iCheck('check');
 
+						if (this.name == 'yourIdea3') {
+
+							$('#yourIdea3Text').prop('disabled', false);
+
+							$('#yourIdea3Text').val(this.text);
+
+						}
 					});
 				}
 
@@ -184,6 +241,13 @@ define(["jquery", "backbone", "icheck", "models/baseModel", "text!templates/jobs
 
 						$('#' + this.name).iCheck('check');
 
+						if (this.name == 'yourIdea2') {
+
+							$('#yourIdea2Text').prop('disabled', false);
+
+							$('#yourIdea2Text').val(this.text);
+
+						}
 					});
 				}
 

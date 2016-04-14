@@ -80,8 +80,6 @@ module.exports.createBase = function(req, res) {
 
 module.exports.updateBase = function(req, res) {
 
-  console.log(req.body);
-
   // var job = req.body.job,
   //     foods = req.body.food;
 

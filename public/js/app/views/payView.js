@@ -58,7 +58,7 @@ define(["jquery", "backbone", "icheck", "text!templates/pay.html", "text!templat
 								description = description + 'Swimming Hole \n';
 								break;
 							case 'yourIdea3':
-								description = description + 'Your Idea \n';
+								description = description + 'Your Idea: ' + item.text + ' \n';
 								break;
 						} // end switch
 
@@ -220,8 +220,6 @@ define(["jquery", "backbone", "icheck", "text!templates/pay.html", "text!templat
 				// 	ticket: this.model.toJSON()
 				// };
 
-				console.log("this is payjs" + this.model.toJSON());
-
 				// $.ajax({
 				// 	url: '/api/authPayment',
 				// 	type: 'POST',
@@ -283,8 +281,6 @@ define(["jquery", "backbone", "icheck", "text!templates/pay.html", "text!templat
 						ticket: ticket
 					},
 				});
-
-				console.log('updateSpreadsheet firing')
 
 			},
 

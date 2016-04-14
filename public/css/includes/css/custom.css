@@ -146,6 +146,12 @@ p {
   border: none;
   color: #979797;
 }
+.form-control[disabled] {
+  background: #000000;
+  border: none;
+  color: #979797;
+  opacity: 0.25;
+}
 .bwizard {
   position: relative;
 }

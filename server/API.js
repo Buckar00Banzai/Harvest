@@ -88,7 +88,7 @@ function switchTitle(ticket, _accomodation, _arrival) {
 					participateText = participateText + 'Host \n';
 					break;
 				case 'yourIdea1':
-					participateText = participateText + 'Your Idea \n';
+					participateText = participateText + 'Your Idea: ' + item.text + ' \n';
 					break;
 			} // end switch
 
@@ -117,7 +117,7 @@ function switchTitle(ticket, _accomodation, _arrival) {
 					patronText = patronText + 'Swimming Hole \n';
 					break;
 				case 'yourIdea3':
-					patronText = patronText + 'Your Idea \n';
+					patronText = patronText + 'Your Idea: ' + item.text + ' \n';
 					break;
 			} // end switch
 
@@ -143,7 +143,7 @@ function switchTitle(ticket, _accomodation, _arrival) {
 					potluckText = potluckText + 'Party Favors \n';
 					break;
 				case 'yourIdea2':
-					potluckText = potluckText + 'Your Idea \n';
+					potluckText = potluckText + 'Your Idea: ' + item.text + ' \n';
 					break;
 			} // end switch
 
