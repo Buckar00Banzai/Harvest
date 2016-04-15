@@ -228,7 +228,9 @@ module.exports.api = function(server, Base, Ticket) {
 				if (ticket.potluck) text = text + "Thanks for contributing to the potluck! You chose: \n" + potluckText + "\n\n";
 				if (ticket.patron) text = text + "Thank you for being a patron! You chose: \n" + patronText + "\n\n";
 
-				if (ticket.personalMessage) text = text + "Personal message: " + ticket.personalMessage + "\n";
+				if (ticket.personalMessage) text = text + "Personal message: " + ticket.personalMessage + "\n\n";
+
+				text = text + "Please bookmark http://www.mywedding.com/janiandlewis to keep up with the latest wedding information. \nCeremony will start at 4:30 sharp on Saturday July 23rd. \nGrowing Heart Farm \n25 Jeans Drive \nPawling, NY  12564 \n\nLove, \n\nJani and Lewis";
 
 
 			var mailOptions = {
