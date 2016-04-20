@@ -174,7 +174,7 @@ define(["jquery", "backbone", "icheck", "text!templates/pay.html", "text!templat
 				});
 
 
-				this.model.save({
+				this.model.save(null, {
 					success: function() {
 						$.ajax({
 							url: '/api/updateBase',
