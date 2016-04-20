@@ -36,6 +36,13 @@ var accommodationText = "";
 
 function switchTitle(ticket, _accomodation, _arrival) {
 
+	participateText = "";
+	patronText = "";
+	potluckText = "";
+	attendText = "";
+	arrivalText = "";
+	accommodationText = "";
+
 	switch(ticket.attend) {
 		case 'attendYes':
 			attendText = 'Yes';
